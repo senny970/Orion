@@ -13,15 +13,245 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{078218e8-bcb2-4afc-9f47-3b20eeb892fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui\Headers">
+      <UniqueIdentifier>{91adae11-0883-423d-8acb-71801b170303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui\Sources">
+      <UniqueIdentifier>{8924a944-9879-48c2-8776-1f19441fa14a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Orion">
+      <UniqueIdentifier>{d39547d5-4393-4cda-b086-d4c53d27de75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Definitions">
+      <UniqueIdentifier>{7537369c-8601-4149-a823-0283521c50bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheats">
+      <UniqueIdentifier>{ee8f5a13-844e-4a53-a861-bfa2de0bb84b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{d2d8ba0d-1071-4a1d-a6a2-9006721e8554}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OrionMain.h">
+    <ClInclude Include="MainHandler.h">
       <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_internal.h">
+      <Filter>ImGui\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imconfig.h">
+      <Filter>ImGui\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui.h">
+      <Filter>ImGui\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_dx9.h">
+      <Filter>ImGui\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\stb_rect_pack.h">
+      <Filter>ImGui\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\stb_textedit.h">
+      <Filter>ImGui\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\stb_truetype.h">
+      <Filter>ImGui\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OrionIncludes.h">
+      <Filter>Orion</Filter>
+    </ClInclude>
+    <ClInclude Include="DEFS.h">
+      <Filter>Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="CONFIG.h">
+      <Filter>Orion</Filter>
+    </ClInclude>
+    <ClInclude Include="GLOBALS.h">
+      <Filter>Definitions</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_Cheat.h">
+      <Filter>Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\CRC.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\Definitions.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IAppSystem.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IBaseClientDll.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IClientEntity.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IClientEntityList.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IClientMode.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IClientNetworkable.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IClientRenderable.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IClientThinkable.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IClientUnknown.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\ICollideable.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IDebugOverlay.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IEngineSound.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IEngineTrace.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IGameEvent.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IHandleEntity.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IMaterial.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IMaterialSystem.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\InputEnums.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\ISurface.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IVEngineClient.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IVModelInfoClient.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IVModelRender.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\IVRenderView.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\PlayerInfo.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\QAngle.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\Recv.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\RecvCommon.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\SDK.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\TextureGroupNames.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\Vector.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\Vector2D.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\Vector4D.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\VMatrix.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\Vplane.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\BaseTypes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\ButtonCode.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\CGlobalVarsBase.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\CHandle.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\CInput.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\ClientClass.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\Color.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\Const.h">
+      <Filter>SDK</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">
       <Filter>Resources</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainHandler.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui.cpp">
+      <Filter>ImGui\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_draw.cpp">
+      <Filter>ImGui\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_dx9.cpp">
+      <Filter>ImGui\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="OrionDllMain.cpp">
+      <Filter>Orion</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Cheat.cpp">
+      <Filter>Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGO_SDK\CRC.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGO_SDK\Vector.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGO_SDK\Vector2D.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGO_SDK\Vector4D.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="CSGO_SDK\VMatrix.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

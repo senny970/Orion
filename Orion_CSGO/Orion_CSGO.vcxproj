@@ -9,14 +9,6 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -31,6 +23,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -38,19 +31,6 @@
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -63,25 +43,9 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -91,54 +55,103 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;$(SolutionDir)ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+      <ForceFileOutput>MultiplyDefinedSymbolOnly</ForceFileOutput>
+      <AdditionalOptions>/IGNORE:4006,4088 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="OrionMain.h" />
+    <ClInclude Include="Cheats\C_Cheat.h" />
+    <ClInclude Include="CONFIG.h" />
+    <ClInclude Include="CSGO_SDK\BaseTypes.h" />
+    <ClInclude Include="CSGO_SDK\ButtonCode.h" />
+    <ClInclude Include="CSGO_SDK\CGlobalVarsBase.h" />
+    <ClInclude Include="CSGO_SDK\CHandle.h" />
+    <ClInclude Include="CSGO_SDK\CInput.h" />
+    <ClInclude Include="CSGO_SDK\ClientClass.h" />
+    <ClInclude Include="CSGO_SDK\Color.h" />
+    <ClInclude Include="CSGO_SDK\Const.h" />
+    <ClInclude Include="CSGO_SDK\CRC.h" />
+    <ClInclude Include="CSGO_SDK\Definitions.h" />
+    <ClInclude Include="CSGO_SDK\IAppSystem.h" />
+    <ClInclude Include="CSGO_SDK\IBaseClientDll.h" />
+    <ClInclude Include="CSGO_SDK\IClientEntity.h" />
+    <ClInclude Include="CSGO_SDK\IClientEntityList.h" />
+    <ClInclude Include="CSGO_SDK\IClientMode.h" />
+    <ClInclude Include="CSGO_SDK\IClientNetworkable.h" />
+    <ClInclude Include="CSGO_SDK\IClientRenderable.h" />
+    <ClInclude Include="CSGO_SDK\IClientThinkable.h" />
+    <ClInclude Include="CSGO_SDK\IClientUnknown.h" />
+    <ClInclude Include="CSGO_SDK\ICollideable.h" />
+    <ClInclude Include="CSGO_SDK\IDebugOverlay.h" />
+    <ClInclude Include="CSGO_SDK\IEngineSound.h" />
+    <ClInclude Include="CSGO_SDK\IEngineTrace.h" />
+    <ClInclude Include="CSGO_SDK\IGameEvent.h" />
+    <ClInclude Include="CSGO_SDK\IHandleEntity.h" />
+    <ClInclude Include="CSGO_SDK\IMaterial.h" />
+    <ClInclude Include="CSGO_SDK\IMaterialSystem.h" />
+    <ClInclude Include="CSGO_SDK\InputEnums.h" />
+    <ClInclude Include="CSGO_SDK\ISurface.h" />
+    <ClInclude Include="CSGO_SDK\IVEngineClient.h" />
+    <ClInclude Include="CSGO_SDK\IVModelInfoClient.h" />
+    <ClInclude Include="CSGO_SDK\IVModelRender.h" />
+    <ClInclude Include="CSGO_SDK\IVRenderView.h" />
+    <ClInclude Include="CSGO_SDK\PlayerInfo.h" />
+    <ClInclude Include="CSGO_SDK\QAngle.h" />
+    <ClInclude Include="CSGO_SDK\Recv.h" />
+    <ClInclude Include="CSGO_SDK\RecvCommon.h" />
+    <ClInclude Include="CSGO_SDK\SDK.h" />
+    <ClInclude Include="CSGO_SDK\TextureGroupNames.h" />
+    <ClInclude Include="CSGO_SDK\Vector.h" />
+    <ClInclude Include="CSGO_SDK\Vector2D.h" />
+    <ClInclude Include="CSGO_SDK\Vector4D.h" />
+    <ClInclude Include="CSGO_SDK\VMatrix.h" />
+    <ClInclude Include="CSGO_SDK\Vplane.h" />
+    <ClInclude Include="DEFS.h" />
+    <ClInclude Include="GLOBALS.h" />
+    <ClInclude Include="Hooks.h" />
+    <ClInclude Include="ImGui\imconfig.h" />
+    <ClInclude Include="ImGui\imgui.h" />
+    <ClInclude Include="ImGui\imgui_impl_dx9.h" />
+    <ClInclude Include="ImGui\imgui_internal.h" />
+    <ClInclude Include="ImGui\stb_rect_pack.h" />
+    <ClInclude Include="ImGui\stb_textedit.h" />
+    <ClInclude Include="ImGui\stb_truetype.h" />
+    <ClInclude Include="MainHandler.h" />
+    <ClInclude Include="OrionIncludes.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Cheats\C_Cheat.cpp" />
+    <ClCompile Include="CSGO_SDK\CRC.cpp" />
+    <ClCompile Include="CSGO_SDK\Vector.cpp" />
+    <ClCompile Include="CSGO_SDK\Vector2D.cpp" />
+    <ClCompile Include="CSGO_SDK\Vector4D.cpp" />
+    <ClCompile Include="CSGO_SDK\VMatrix.cpp" />
+    <ClCompile Include="Hooks.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_dx9.cpp" />
+    <ClCompile Include="MainHandler.cpp" />
+    <ClCompile Include="OrionDllMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
