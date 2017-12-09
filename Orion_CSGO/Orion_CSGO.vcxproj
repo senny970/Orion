@@ -73,11 +73,14 @@
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
       <ForceFileOutput>MultiplyDefinedSymbolOnly</ForceFileOutput>
-      <AdditionalOptions>/IGNORE:4006,4088 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/IGNORE:4006 /IGNORE:4088 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cheats\C_BunnyHop.h" />
     <ClInclude Include="Cheats\C_Cheat.h" />
+    <ClInclude Include="Cheats\C_CheatMgr.h" />
+    <ClInclude Include="Client\Client.h" />
     <ClInclude Include="CONFIG.h" />
     <ClInclude Include="CSGO_SDK\BaseTypes.h" />
     <ClInclude Include="CSGO_SDK\ButtonCode.h" />
@@ -124,6 +127,10 @@
     <ClInclude Include="CSGO_SDK\VMatrix.h" />
     <ClInclude Include="CSGO_SDK\Vplane.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="Engine\Entity.h" />
+    <ClInclude Include="Engine\NetVar.h" />
+    <ClInclude Include="Engine\Offset.h" />
+    <ClInclude Include="Engine\Weapon.h" />
     <ClInclude Include="GLOBALS.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="ImGui\imconfig.h" />
@@ -140,12 +147,19 @@
     <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cheats\C_BunnyHop.cpp" />
     <ClCompile Include="Cheats\C_Cheat.cpp" />
+    <ClCompile Include="Cheats\C_CheatMgr.cpp" />
+    <ClCompile Include="Client\Client.cpp" />
     <ClCompile Include="CSGO_SDK\CRC.cpp" />
     <ClCompile Include="CSGO_SDK\Vector.cpp" />
     <ClCompile Include="CSGO_SDK\Vector2D.cpp" />
     <ClCompile Include="CSGO_SDK\Vector4D.cpp" />
     <ClCompile Include="CSGO_SDK\VMatrix.cpp" />
+    <ClCompile Include="Engine\Entity.cpp" />
+    <ClCompile Include="Engine\NetVar.cpp" />
+    <ClCompile Include="Engine\Offset.cpp" />
+    <ClCompile Include="Engine\Weapon.cpp" />
     <ClCompile Include="Hooks.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />

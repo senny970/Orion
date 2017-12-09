@@ -24,6 +24,7 @@ using namespace std;
 #include <mmintrin.h>
 #include <sstream>
 #include <limits>
+#include <map>
 
 // ImGui
 #include <imgui.h>
@@ -78,13 +79,20 @@ using namespace std;
 #include "CSGO_SDK\IGameEvent.h"
 #include "CSGO_SDK\TextureGroupNames.h"
 
+#include "Engine\NetVar.h"
+#include "Engine\Offset.h"
+#include "Engine\Entity.h"
+#include "Engine\Weapon.h"
+
 
 // Orion
 #include "CONFIG.h"
 #include "DEFS.h"
 #include "GLOBALS.h"
 
-//#include "Cheats\C_Cheat.h"
+#include "Cheats\C_Cheat.h"
+#include "Cheats\C_CheatMgr.h"
+#include "Cheats\C_BunnyHop.h"
 
 #include "Hooks.h"
 

@@ -1,6 +1,6 @@
 #include "OrionIncludes.h"
 
-LRESULT CALLBACK H::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT __stdcall H::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
   if (GetAsyncKeyState(ORION_MENU_BTN))
   {
@@ -30,25 +30,50 @@ HRESULT __stdcall H::D3D_EndScene(IDirect3DDevice9* thisptr)
 
   if (G::bIsMenuShown)
   {
-    ImGui::Begin(XS("Simple box")/*, 0, ImGuiWindowFlags_AlwaysAutoResize */);
-    if (ImGui::Button(XS("Press me")))
+    ImGui::Begin(XS("Orion Hooks Menu"));
+
+    C_BunnyHop* pBhop = (C_BunnyHop*)C_CheatMgr::GetCheat(XS("C_BunnyHop"));
+    if (pBhop)
     {
-      Beep(600, 30);
+      ImGui::Checkbox(XS("Enable bunnyhop"), &pBhop->m_bEnabled);
+      if (pBhop->m_bEnabled)
+      {
+        ImGui::Checkbox(XS("Autostrafe"), &pBhop->m_bAutoStrafe);
+      }
     }
-    ImGui::Text(XS("Application average %.3f ms/frame (%.1f FPS)"), 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+    ImGui::Text(XS("Application average %.3f ms/frame (%.1f FPS)"),
+      1000.0f / ImGui::GetIO().Framerate,
+      ImGui::GetIO().Framerate);
     ImGui::End();
   }
 
   ImGui::Render();
-  return U::VMTHookMgr::GetHook(XS("D3D_EndScene"))->GetOriginFn<IDirect3DDevice9_EndSceneFn>()(thisptr);
+  return U::VMTHookMgr::GetHook(XS("D3D_EndScene"))->
+    GetOriginFn<IDirect3DDevice9_EndSceneFn>()(thisptr);
 }
 
 HRESULT __stdcall H::D3D_Reset(
   IDirect3DDevice9* thisptr,
   D3DPRESENT_PARAMETERS* pPresentationParameters)
 {
-  cout << "D3D_Reset called!" << endl;
+  ImGui_ImplDX9_InvalidateDeviceObjects();
 
+  HRESULT hRes = U::VMTHookMgr::GetHook(XS("D3D_Reset"))->
+    GetOriginFn<IDirect3DDevice9_ResetFn>()(thisptr, pPresentationParameters);
 
-  return U::VMTHookMgr::GetHook(XS("D3D_Reset"))->GetOriginFn<IDirect3DDevice9_ResetFn>()(thisptr, pPresentationParameters);
+  ImGui_ImplDX9_CreateDeviceObjects();
+
+  return hRes;
+}
+
+bool __stdcall H::IClientMode_CreateMove(float flInputSampleTime, SDK::CUserCmd* pCmd)
+{
+  C_BunnyHop* pBhop = (C_BunnyHop*)C_CheatMgr::GetCheat(XS("C_BunnyHop"));
+  if (pBhop)
+  {
+    pBhop->Perform(pCmd);
+  }
+
+  return U::VMTHookMgr::GetHook(XS("IClientMode_CreateMove"))->
+    GetOriginFn<IClientMode_CreateMoveFn>()(flInputSampleTime, pCmd);
 }
