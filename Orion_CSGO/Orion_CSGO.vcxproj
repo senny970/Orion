@@ -80,7 +80,6 @@
     <ClInclude Include="Cheats\C_BunnyHop.h" />
     <ClInclude Include="Cheats\C_Cheat.h" />
     <ClInclude Include="Cheats\C_CheatMgr.h" />
-    <ClInclude Include="Client\Client.h" />
     <ClInclude Include="CONFIG.h" />
     <ClInclude Include="CSGO_SDK\BaseTypes.h" />
     <ClInclude Include="CSGO_SDK\ButtonCode.h" />
@@ -150,7 +149,6 @@
     <ClCompile Include="Cheats\C_BunnyHop.cpp" />
     <ClCompile Include="Cheats\C_Cheat.cpp" />
     <ClCompile Include="Cheats\C_CheatMgr.cpp" />
-    <ClCompile Include="Client\Client.cpp" />
     <ClCompile Include="CSGO_SDK\CRC.cpp" />
     <ClCompile Include="CSGO_SDK\Vector.cpp" />
     <ClCompile Include="CSGO_SDK\Vector2D.cpp" />

@@ -37,9 +37,6 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{e1530cf1-5a8d-48f6-b717-7098112faffc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Client">
-      <UniqueIdentifier>{badbc9de-0149-4d15-b44b-10362ec97598}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainHandler.h">
@@ -231,9 +228,6 @@
     <ClInclude Include="Engine\NetVar.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Client\Client.h">
-      <Filter>Client</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Weapon.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -294,9 +288,6 @@
     </ClCompile>
     <ClCompile Include="Engine\NetVar.cpp">
       <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Client\Client.cpp">
-      <Filter>Client</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Weapon.cpp">
       <Filter>Engine</Filter>
