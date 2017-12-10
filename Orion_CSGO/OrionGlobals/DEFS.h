@@ -1,6 +1,6 @@
 #pragma once
 
-#define GVAR(TYPE, VAR, DEF) namespace G { extern TYPE VAR = DEF; }
+#define GVAR(TYPE, VAR, DEF) namespace G { extern __declspec(selectany) TYPE VAR = DEF; }
 #define GET_CHEAT(CLASS, VAR) CLASS* VAR = (CLASS*)CM::Get(XS("" #CLASS));
 #define REG_CHEAT(CH_CLASS) CM::RegCheat(new CH_CLASS(XS("" #CH_CLASS)), XS("" #CH_CLASS));
 

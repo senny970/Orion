@@ -1,15 +1,15 @@
 #pragma once
 
-class C_Bhop : public C_Cheat
+class C_Radar : public C_Cheat
 {
 public:
-  C_Bhop(const string &cheatName);
-  virtual ~C_Bhop();
+  C_Radar(const string &cheatName);
+  virtual ~C_Radar();
 
   virtual void OnCreateMove(SDK::CUserCmd* pCmd);
   virtual bool UndoChanges();
   virtual bool OnDraw();
 
-  bool m_bAutoStrafe;
+  
 };
 

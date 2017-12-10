@@ -23,7 +23,8 @@ namespace U
       void* pJumpStart,
       int iInstructionLength,
       void* pJumpTo,
-      JMPTypes JMPType = JMPType_Call);
+      JMPTypes JMPType = JMPType_Call,
+      bool bSaveRegistersBeforeCall = true);
 
     ~JMPHook();
 
@@ -51,5 +52,6 @@ namespace U
     void* m_pOpCodes;
 
     bool m_bHooked;
+    bool m_bSaveRegisters;
   };
 }

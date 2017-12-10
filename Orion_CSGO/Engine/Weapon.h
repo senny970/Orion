@@ -111,118 +111,118 @@ namespace E
 		WEAPON_KNIFE_PUSH = 516
 	};
 
-  WEAPON_TYPE GetWeaponType(int iItemDefinitionIndex)
-  {
-    switch (iItemDefinitionIndex)
-    {
-      case WEAPON_DEAGLE:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_ELITE:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_FIVESEVEN:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_GLOCK:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_AK47:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_AUG:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_AWP:
-        return WEAPON_TYPE_SNIPER;
-      case WEAPON_FAMAS:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_G3SG1:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_GALILAR:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_M249:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_M4A1:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_MAC10:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_P90:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_UMP45:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_XM1014:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_BIZON:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_MAG7:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_NEGEV:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_SAWEDOFF:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_TEC9:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_TASER:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_HKP2000:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_MP7:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_MP9:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_NOVA:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_P250:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_SCAR20:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_SG553:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_SSG08:
-        return WEAPON_TYPE_SNIPER;
-      case WEAPON_KNIFE:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_FLASHBANG:
-        return WEAPON_TYPE_GRENADE;
-      case WEAPON_HEGRENADE:
-        return WEAPON_TYPE_GRENADE;
-      case WEAPON_SMOKEGRENADE:
-        return WEAPON_TYPE_GRENADE;
-      case WEAPON_MOLOTOV:
-        return WEAPON_TYPE_GRENADE;
-      case WEAPON_DECOY:
-        return WEAPON_TYPE_GRENADE;
-      case WEAPON_INCGRENADE:
-        return WEAPON_TYPE_GRENADE;
-      case WEAPON_C4:
-        return WEAPON_TYPE_C4;
-      case WEAPON_KNIFE_T:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_M4A1_SILENCER:
-        return WEAPON_TYPE_SHOTGUN;
-      case WEAPON_USP_SILENCER:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_CZ75A:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_REVOLVER:
-        return WEAPON_TYPE_PISTOL;
-      case WEAPON_KNIFE_BAYONET:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_FLIP:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_GUT:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_KARAMBIT:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_M9_BAYONET:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_TACTICAL:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_FALCHION:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_SURVIVAL_BOWIE:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_BUTTERFLY:
-        return WEAPON_TYPE_KNIFE;
-      case WEAPON_KNIFE_PUSH:
-        return WEAPON_TYPE_KNIFE;
-      default:
-        return WEAPON_TYPE_UNKNOWN;
-    }
-  }
+  //WEAPON_TYPE GetWeaponType(int iItemDefinitionIndex)
+  //{
+  //  switch (iItemDefinitionIndex)
+  //  {
+  //    case WEAPON_DEAGLE:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_ELITE:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_FIVESEVEN:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_GLOCK:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_AK47:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_AUG:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_AWP:
+  //      return WEAPON_TYPE_SNIPER;
+  //    case WEAPON_FAMAS:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_G3SG1:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_GALILAR:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_M249:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_M4A1:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_MAC10:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_P90:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_UMP45:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_XM1014:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_BIZON:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_MAG7:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_NEGEV:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_SAWEDOFF:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_TEC9:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_TASER:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_HKP2000:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_MP7:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_MP9:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_NOVA:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_P250:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_SCAR20:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_SG553:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_SSG08:
+  //      return WEAPON_TYPE_SNIPER;
+  //    case WEAPON_KNIFE:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_FLASHBANG:
+  //      return WEAPON_TYPE_GRENADE;
+  //    case WEAPON_HEGRENADE:
+  //      return WEAPON_TYPE_GRENADE;
+  //    case WEAPON_SMOKEGRENADE:
+  //      return WEAPON_TYPE_GRENADE;
+  //    case WEAPON_MOLOTOV:
+  //      return WEAPON_TYPE_GRENADE;
+  //    case WEAPON_DECOY:
+  //      return WEAPON_TYPE_GRENADE;
+  //    case WEAPON_INCGRENADE:
+  //      return WEAPON_TYPE_GRENADE;
+  //    case WEAPON_C4:
+  //      return WEAPON_TYPE_C4;
+  //    case WEAPON_KNIFE_T:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_M4A1_SILENCER:
+  //      return WEAPON_TYPE_SHOTGUN;
+  //    case WEAPON_USP_SILENCER:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_CZ75A:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_REVOLVER:
+  //      return WEAPON_TYPE_PISTOL;
+  //    case WEAPON_KNIFE_BAYONET:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_FLIP:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_GUT:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_KARAMBIT:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_M9_BAYONET:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_TACTICAL:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_FALCHION:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_SURVIVAL_BOWIE:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_BUTTERFLY:
+  //      return WEAPON_TYPE_KNIFE;
+  //    case WEAPON_KNIFE_PUSH:
+  //      return WEAPON_TYPE_KNIFE;
+  //    default:
+  //      return WEAPON_TYPE_UNKNOWN;
+  //  }
+  //}
 }

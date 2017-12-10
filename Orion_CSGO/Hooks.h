@@ -15,6 +15,8 @@ namespace H
 
   void __stdcall IBaseClientDll_CreateMove(
     int sequence_number, float input_sample_frametime, bool active);
+
+  void CHLClient_CreateMove();
 }
 
 extern LRESULT ImGui_ImplWin32_WndProcHandler(

@@ -7017,7 +7017,7 @@ bool ImGui::SliderFloat(const char* label, float* v, float v_min, float v_max, c
     {
         SetActiveID(id, window);
         FocusWindow(window);
-        if (tab_focus_requested || g.IO.KeyCtrl)
+        if (false) //if (tab_focus_requested || g.IO.KeyCtrl) // ORION_FIX
         {
             start_text_input = true;
             g.ScalarAsInputTextId = 0;

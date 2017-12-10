@@ -10,7 +10,14 @@ using namespace std;
 
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
-#pragma comment(lib, "Utils/Lib/Utils.lib")
+
+#ifdef _DEBUG
+#pragma comment(lib, "Utils/Lib/Utils_debug.lib")
+#endif
+#ifdef NDEBUG
+#pragma comment(lib, "Utils/Lib/Utils_release.lib")
+#endif
+#include "Utils/Include/Utils.h"
 
 #include <iostream>
 #include <Windows.h>
@@ -30,9 +37,6 @@ using namespace std;
 #include <imgui.h>
 #include <imgui_impl_dx9.h>
 #include <imgui_internal.h>
-
-// Libs
-#include "Utils/Include/Utils.h"
 
 // VMT
 #include "OrionGlobals\VMTS.h"
@@ -98,6 +102,7 @@ using namespace std;
 #include "Cheats\C_CheatMgr.h"
 #include "Cheats\C_Bhop.h"
 #include "Cheats\C_FakeLag.h"
+#include "Cheats\C_Radar.h"
 
 // HOOKS
 #include "Hooks.h"

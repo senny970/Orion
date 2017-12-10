@@ -1,17 +1,18 @@
 #include "../OrionIncludes.h"
 
 C_Bhop::C_Bhop(const string& sCheatName)
-  : C_Cheat(sCheatName)
+  : C_Cheat(sCheatName),
+    m_bAutoStrafe(false)
 {
 
 }
 
 C_Bhop::~C_Bhop()
 {
-  
+
 }
 
-void C_Bhop::Perform(SDK::CUserCmd* pCmd)
+void C_Bhop::OnCreateMove(SDK::CUserCmd* pCmd)
 {
   if (m_bEnabled)
   {
@@ -34,6 +35,16 @@ void C_Bhop::Perform(SDK::CUserCmd* pCmd)
       }
     }
   }
+}
+
+bool C_Bhop::OnDraw()
+{
+  ImGui::Checkbox(XS("Enable bunnyhop"), &m_bEnabled);
+  if (m_bEnabled)
+  {
+    ImGui::Checkbox(XS("Autostrafe"), &m_bAutoStrafe);
+  }
+  return true;
 }
 
 bool C_Bhop::UndoChanges()

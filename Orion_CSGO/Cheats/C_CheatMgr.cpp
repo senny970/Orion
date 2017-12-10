@@ -20,6 +20,7 @@ CM::~CM()
 {
   for (auto it = m_mapCheats.begin(); it != m_mapCheats.end(); it++)
   {
+    it->second->Unload();
     delete it->second;
   }
   m_mapCheats.clear();
@@ -57,6 +58,7 @@ bool CM::UnregCheat(const std::string &sCheatName)
   if (iterator == pCheatMgr->m_mapCheats.end())
     return false;
 
+  iterator->second->Unload();
   delete iterator->second;
   pCheatMgr->m_mapCheats.erase(iterator);
 

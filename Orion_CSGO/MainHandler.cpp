@@ -5,6 +5,7 @@ void M::InitGlobals(HINSTANCE hDllInstance)
   G::hDllInstance = hDllInstance;
   G::hCurentWindow = FindWindow(NULL, ORION_WINDOW_NAME);
   G::pD3D = U::GetD3D();
+  G::bSendPacket = true;
 
   void* pEngineIFace = (void*)(GetProcAddress(U::GetModHandle(
     XS("engine.dll")), XS("CreateInterface")));
@@ -20,9 +21,11 @@ void M::InitGlobals(HINSTANCE hDllInstance)
     XS("client.dll")), XS("CreateInterface")));
   G::pClient = U::FindIFace<SDK::IBaseClientDLL*>(pClientIFace, XS("VClient"));
   G::pEntityList = U::FindIFace<SDK::IClientEntityList*>(pClientIFace, XS("VClientEntityList"));
-  G::pGlobals = **(SDK::CGlobalVarsBase***)((*(uint32_t**)G::pClient)[0] + 0x1B);
-  G::pInput = **(SDK::CInput***)((*(uint32_t**)G::pClient)[15] + 0x1);
-  G::pClientMode = **(SDK::IClientMode***)((*(uint32_t**)G::pClient)[10] + 0x5);
+
+  G::pGlobals = **(SDK::CGlobalVarsBase***)(((uint32_t**)G::pClient)[0][0] + 0x1B);
+  G::pInput = **(SDK::CInput***)(((uint32_t**)G::pClient)[0][15] + 0x1);
+  G::pClientMode = **(SDK::IClientMode***)(((uint32_t**)G::pClient)[0][10] + 0x5);
+
 
   void* pMatSysIFace = (void*)(GetProcAddress(U::GetModHandle(
     XS("materialsystem.dll")), XS("CreateInterface")));
@@ -35,10 +38,6 @@ void M::InitGlobals(HINSTANCE hDllInstance)
   void* pInputSysIFace = (void*)(GetProcAddress(U::GetModHandle(
     XS("inputsystem.dll")), XS("CreateInterface")));
   G::pInputSystem = U::FindIFace<SDK::IInputSystem*>(pInputSysIFace, XS("InputSystemVersion"));
-  
-  U::PatchMgr::RegPatch(U::FindPattern(XS("engine.dll"),
-    XS("B3 01 8B 01 8B 40 10 FF D0 84 C0"), XS("pSendPacket"), 1),
-    XS("00"), XS("pSendPacket"));
 }
 
 void M::InitImGui()
@@ -67,25 +66,36 @@ void M::InitHooks()
   U::VMTHookMgr::RegHook(G::pClient, SDK::VMTS::IBaseClientDLL::CreateMove,
     H::IBaseClientDll_CreateMove, XS("IBaseClientDll_CreateMove"));
   U::VMTHookMgr::ApplyHook(XS("IBaseClientDll_CreateMove"));
+
+  U::JMPHookMgr::RegHook(XS("pSendPacket"), U::FindPattern(XS("engine.dll"),
+    XS("B3 01 8B 01 8B 40"), XS("pSendPacket"), 2), 5, H::CHLClient_CreateMove,
+    U::JMPHook::JMPTypes::JMPType_Call, false);
+  U::JMPHookMgr::ApplyHook(XS("pSendPacket"));
+}
+
+void M::InitEngine()
+{
+  E::g_NetVar.Init(G::pClient->GetAllClasses());
+  E::Offset::Initialize();
 }
 
 void M::RegCheats()
 {
   REG_CHEAT(C_Bhop);
   REG_CHEAT(C_FakeLag);
+  REG_CHEAT(C_Radar);
 }
 
 void M::InitAll(HINSTANCE hDllInstance)
 {
-  U::OpenConsole(string(ORION_TITLE) + string(ORION_VERSION));
+  U::OpenConsole(string(ORION_TITLE) + XS(" ") + string(ORION_VERSION));
 
   InitGlobals(hDllInstance);
   InitImGui();
   InitHooks();
+  InitEngine();
+  
   RegCheats();
-
-  E::g_NetVar.Init(G::pClient->GetAllClasses());
-  E::Offset::Initialize();
 
   Beep(700, 500);
 
@@ -103,10 +113,10 @@ void M::ReleaseAll()
 
   ImGui_ImplDX9_Shutdown();
 
-  delete CM::Instance();
+  delete U::VMTHookMgr::Instance();
   delete U::JMPHookMgr::Instance();
   delete U::PatchMgr::Instance();
-  delete U::VMTHookMgr::Instance();
+  delete CM::Instance();
 
   SetWindowLongPtr(G::hCurentWindow, GWL_WNDPROC, (LONG)G::oWndProc);
 

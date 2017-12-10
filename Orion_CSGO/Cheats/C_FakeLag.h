@@ -6,8 +6,9 @@ public:
   C_FakeLag(const string &cheatName);
   virtual ~C_FakeLag();
 
-  virtual void Perform(SDK::CUserCmd* pCmd);
+  virtual void OnCreateMove(SDK::CUserCmd* pCmd);
   virtual bool UndoChanges();
+  virtual bool OnDraw();
 
   int m_iMaxLagTicks;
 

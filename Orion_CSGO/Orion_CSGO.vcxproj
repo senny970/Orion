@@ -44,19 +44,37 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>
+    </LinkIncremental>
+    <TargetExt>_debug.dll</TargetExt>
+    <OutDir>$(SolutionDir)DLL\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetExt>_release.dll</TargetExt>
+    <OutDir>$(SolutionDir)DLL\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;$(SolutionDir)ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <MinimalRebuild>false</MinimalRebuild>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AssemblerListingLocation>$(Configuration)</AssemblerListingLocation>
+      <ProgramDataBaseFileName>$(Configuration)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <BrowseInformationFile>$(Configuration)$(PlatformToolsetVersion).pdb</BrowseInformationFile>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/IGNORE:4006 /IGNORE:4088 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -68,12 +86,13 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;$(SolutionDir)ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AssemblerListingLocation>$(Configuration)</AssemblerListingLocation>
+      <ProgramDataBaseFileName>$(Configuration)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
-      <ForceFileOutput>MultiplyDefinedSymbolOnly</ForceFileOutput>
       <AdditionalOptions>/IGNORE:4006 /IGNORE:4088 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -82,6 +101,7 @@
     <ClInclude Include="Cheats\C_Cheat.h" />
     <ClInclude Include="Cheats\C_CheatMgr.h" />
     <ClInclude Include="Cheats\C_FakeLag.h" />
+    <ClInclude Include="Cheats\C_Radar.h" />
     <ClInclude Include="CSGO_SDK\BaseTypes.h" />
     <ClInclude Include="CSGO_SDK\ButtonCode.h" />
     <ClInclude Include="CSGO_SDK\CGlobalVarsBase.h" />
@@ -153,6 +173,7 @@
     <ClCompile Include="Cheats\C_Cheat.cpp" />
     <ClCompile Include="Cheats\C_CheatMgr.cpp" />
     <ClCompile Include="Cheats\C_FakeLag.cpp" />
+    <ClCompile Include="Cheats\C_Radar.cpp" />
     <ClCompile Include="CSGO_SDK\CRC.cpp" />
     <ClCompile Include="CSGO_SDK\Vector.cpp" />
     <ClCompile Include="CSGO_SDK\Vector2D.cpp" />

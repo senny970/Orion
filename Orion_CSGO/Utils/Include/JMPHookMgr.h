@@ -12,11 +12,12 @@ namespace U
     static JMPHookMgr* Instance();
 
     static bool RegHook(
+      const std::string &sHookName,
       void* pJumpStart,
       int iInstructionLength,
       void* pJumpTo,
-      JMPHook::JMPTypes JMPType,
-      const std::string &sHookName);
+      JMPHook::JMPTypes JMPType = JMPHook::JMPTypes::JMPType_Call,
+      bool bSaveRegistersBeforeCall = true);
 
     static bool UnregHook(const std::string &sHookName);
 

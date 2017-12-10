@@ -10,7 +10,6 @@ C_Cheat::C_Cheat(const string &sCheatName)
 C_Cheat::~C_Cheat()
 {
   m_bEnabled = false;
-  Unload();
 }
 
 bool C_Cheat::Unload()

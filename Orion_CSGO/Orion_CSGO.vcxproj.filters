@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Headers">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Sources">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -36,9 +32,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainHandler.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
     <ClInclude Include="ImGui\imgui_internal.h">
       <Filter>ImGui\Headers</Filter>
     </ClInclude>
@@ -59,9 +52,6 @@
     </ClInclude>
     <ClInclude Include="ImGui\stb_truetype.h">
       <Filter>ImGui\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks.h">
-      <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="OrionIncludes.h">
       <Filter>OrionGlobals</Filter>
@@ -234,6 +224,15 @@
     <ClInclude Include="OrionGlobals\VMTS.h">
       <Filter>OrionGlobals</Filter>
     </ClInclude>
+    <ClInclude Include="Cheats\C_Radar.h">
+      <Filter>Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="MainHandler.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">
@@ -296,6 +295,9 @@
       <Filter>Cheats</Filter>
     </ClCompile>
     <ClCompile Include="Cheats\C_FakeLag.cpp">
+      <Filter>Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Radar.cpp">
       <Filter>Cheats</Filter>
     </ClCompile>
   </ItemGroup>

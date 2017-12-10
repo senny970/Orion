@@ -26,35 +26,37 @@ LRESULT __stdcall H::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 HRESULT __stdcall H::D3D_EndScene(IDirect3DDevice9* thisptr)
 {
-  ImGui_ImplDX9_NewFrame();
-
-  if (!G::pEngine->IsTakingScreenshot())
-  if (G::bIsMenuShown)
+  if (!G::pEngine->IsTakingScreenshot() && G::pEngine->IsActiveApp())
   {
-    ImGui::Begin(XS("Orion Hooks Menu"));
+    ImGui_ImplDX9_NewFrame();
+    
+    if (G::bIsMenuShown)
+    {
+      if (ImGui::Begin(XS("Orion Hooks Menu"), 0,
+        ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize))
+      {
+        GET_CHEAT(C_Bhop, pBhop);
+        if (pBhop)
+        {
+          pBhop->OnDraw();
+        }
+        GET_CHEAT(C_FakeLag, pFakeLag);
+        if (pFakeLag)
+        {
+          pFakeLag->OnDraw();
+        }
+        GET_CHEAT(C_Radar, pRadar);
+        if (pRadar)
+        {
+          pRadar->OnDraw();
+        }
+        ImGui::End();
+      }
+    }
 
-    GET_CHEAT(C_Bhop, pBhop);
-    if (pBhop)
-    {
-      ImGui::Checkbox(XS("Enable bunnyhop"), &pBhop->m_bEnabled);
-      if (pBhop->m_bEnabled)
-      {
-        ImGui::Checkbox(XS("Autostrafe"), &pBhop->m_bAutoStrafe);
-      }
-    }
-    GET_CHEAT(C_FakeLag, pFakeLag);
-    if (pFakeLag)
-    {
-      ImGui::Checkbox(XS("Enable fakelag"), &pFakeLag->m_bEnabled);
-      if (pFakeLag->m_bEnabled)
-      {
-        ImGui::SliderInt(XS("Max fakelag tick"), &pFakeLag->m_iMaxLagTicks, 1, 10);
-      }
-    }
-    ImGui::End();
+    ImGui::Render();
   }
 
-  ImGui::Render();
   return U::VMTHookMgr::GetHook(XS("D3D_EndScene"))->
     GetOriginFn<IDirect3DDevice9_EndSceneFn>()(thisptr);
 }
@@ -77,13 +79,17 @@ bool __stdcall H::IClientMode_CreateMove(
   GET_CHEAT(C_Bhop, pBhop);
   if (pBhop)
   {
-    pBhop->Perform(pCmd);
+    pBhop->OnCreateMove(pCmd);
   }
-
   GET_CHEAT(C_FakeLag, pFakeLag);
   if (pFakeLag)
   {
-    pFakeLag->Perform(pCmd);
+    pFakeLag->OnCreateMove(pCmd);
+  }
+  GET_CHEAT(C_Radar, pRadar);
+  if (pRadar)
+  {
+    pRadar->OnCreateMove(pCmd);
   }
 
   return U::VMTHookMgr::GetHook(XS("IClientMode_CreateMove"))->
@@ -97,4 +103,13 @@ void __stdcall H::IBaseClientDll_CreateMove(
   return U::VMTHookMgr::GetHook(XS("IBaseClientDll_CreateMove"))->
     GetOriginFn<IBaseClientDll_CreateMoveFn>()(
       sequence_number, input_sample_frametime, active);
+}
+
+void __declspec(naked) H::CHLClient_CreateMove()
+{
+  __asm
+  {
+    mov bl, G::bSendPacket;
+    ret;
+  }
 }
