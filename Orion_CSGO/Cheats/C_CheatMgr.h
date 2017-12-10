@@ -1,22 +1,22 @@
 #pragma once
 
-class C_CheatMgr
+class CM
 {
 public:
-  ~C_CheatMgr();
+  ~CM();
 
-  static C_CheatMgr* Instance();
+  static CM* Instance();
 
   static bool RegCheat(C_Cheat* pCheat, const std::string &sCheatName);
   static bool UnregCheat(const std::string &sCheatName);
 
-  static C_Cheat* GetCheat(const std::string &sCheatName);
+  static C_Cheat* Get(const std::string &sCheatName);
   static std::map<std::string, C_Cheat*> GetCheats();
 
 private:
-  C_CheatMgr();
+  CM();
 
-  static C_CheatMgr* sm_pInstance;
+  static CM* sm_pInstance;
 
   std::map<std::string, C_Cheat*> m_mapCheats;
 };

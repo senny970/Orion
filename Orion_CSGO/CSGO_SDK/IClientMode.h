@@ -84,35 +84,22 @@ namespace SDK
 		int			m_EdgeBlur; // 0x148
 	};
 
-	namespace TABLE
-	{
-		namespace IClientMode
-		{
-			enum
-			{
-				OverrideView = 18 ,
-				CreateMove = 24 ,
-				GetViewModelFOV = 35
-			};
-		}
-	}
-
 	class IClientMode {
 	public:
 		bool OverrideView( CViewSetup* pSetup )
 		{
 			VirtualFn( bool )( PVOID , CViewSetup* );
-			return GetMethod< OriginalFn >( this , TABLE::IClientMode::OverrideView )( this , pSetup );
+			return GetVMethod< OriginalFn >( this , VMTS::IClientMode::OverrideView )( this , pSetup );
 		}
 		bool CreateMove( float flInputSampleTime , CUserCmd* cmd )
 		{
 			VirtualFn( bool )( PVOID , float , CUserCmd* );
-			return GetMethod< OriginalFn >( this , TABLE::IClientMode::CreateMove )( this , flInputSampleTime , cmd );
+			return GetVMethod< OriginalFn >( this , VMTS::IClientMode::CreateMove )( this , flInputSampleTime , cmd );
 		}
 		float GetViewModelFOV()
 		{
 			VirtualFn( float )( PVOID );
-			return GetMethod< OriginalFn >( this , TABLE::IClientMode::GetViewModelFOV )( this );
+			return GetVMethod< OriginalFn >( this , VMTS::IClientMode::GetViewModelFOV )( this );
 		}
 	};
 }

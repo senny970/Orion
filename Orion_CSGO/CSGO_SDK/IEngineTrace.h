@@ -414,7 +414,7 @@ namespace SDK
 		void TraceRay( const Ray_t &ray , unsigned int fMask , ITraceFilter *pTraceFilter , trace_t *pTrace )
 		{
 			VirtualFn( void )( PVOID , const Ray_t &, unsigned int, ITraceFilter *, trace_t * );
-			GetMethod<OriginalFn>( this , 5 )( this , ray , fMask , pTraceFilter , pTrace );
+			GetVMethod<OriginalFn>( this , 5 )( this , ray , fMask , pTraceFilter , pTrace );
 		}
 
 		virtual void	SetupLeafAndEntityListRay( const Ray_t &ray , ITraceListData *pTraceData ) = 0;

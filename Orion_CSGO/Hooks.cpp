@@ -28,11 +28,12 @@ HRESULT __stdcall H::D3D_EndScene(IDirect3DDevice9* thisptr)
 {
   ImGui_ImplDX9_NewFrame();
 
+  if (!G::pEngine->IsTakingScreenshot())
   if (G::bIsMenuShown)
   {
     ImGui::Begin(XS("Orion Hooks Menu"));
 
-    C_BunnyHop* pBhop = (C_BunnyHop*)C_CheatMgr::GetCheat(XS("C_BunnyHop"));
+    GET_CHEAT(C_Bhop, pBhop);
     if (pBhop)
     {
       ImGui::Checkbox(XS("Enable bunnyhop"), &pBhop->m_bEnabled);
@@ -41,9 +42,15 @@ HRESULT __stdcall H::D3D_EndScene(IDirect3DDevice9* thisptr)
         ImGui::Checkbox(XS("Autostrafe"), &pBhop->m_bAutoStrafe);
       }
     }
-    ImGui::Text(XS("Application average %.3f ms/frame (%.1f FPS)"),
-      1000.0f / ImGui::GetIO().Framerate,
-      ImGui::GetIO().Framerate);
+    GET_CHEAT(C_FakeLag, pFakeLag);
+    if (pFakeLag)
+    {
+      ImGui::Checkbox(XS("Enable fakelag"), &pFakeLag->m_bEnabled);
+      if (pFakeLag->m_bEnabled)
+      {
+        ImGui::SliderInt(XS("Max fakelag tick"), &pFakeLag->m_iMaxLagTicks, 1, 10);
+      }
+    }
     ImGui::End();
   }
 
@@ -53,8 +60,7 @@ HRESULT __stdcall H::D3D_EndScene(IDirect3DDevice9* thisptr)
 }
 
 HRESULT __stdcall H::D3D_Reset(
-  IDirect3DDevice9* thisptr,
-  D3DPRESENT_PARAMETERS* pPresentationParameters)
+  IDirect3DDevice9* thisptr, D3DPRESENT_PARAMETERS* pPresentationParameters)
 {
   ImGui_ImplDX9_InvalidateDeviceObjects();
 
@@ -62,18 +68,33 @@ HRESULT __stdcall H::D3D_Reset(
     GetOriginFn<IDirect3DDevice9_ResetFn>()(thisptr, pPresentationParameters);
 
   ImGui_ImplDX9_CreateDeviceObjects();
-
   return hRes;
 }
 
-bool __stdcall H::IClientMode_CreateMove(float flInputSampleTime, SDK::CUserCmd* pCmd)
+bool __stdcall H::IClientMode_CreateMove(
+  float flInputSampleTime, SDK::CUserCmd* pCmd)
 {
-  C_BunnyHop* pBhop = (C_BunnyHop*)C_CheatMgr::GetCheat(XS("C_BunnyHop"));
+  GET_CHEAT(C_Bhop, pBhop);
   if (pBhop)
   {
     pBhop->Perform(pCmd);
   }
 
+  GET_CHEAT(C_FakeLag, pFakeLag);
+  if (pFakeLag)
+  {
+    pFakeLag->Perform(pCmd);
+  }
+
   return U::VMTHookMgr::GetHook(XS("IClientMode_CreateMove"))->
     GetOriginFn<IClientMode_CreateMoveFn>()(flInputSampleTime, pCmd);
+}
+
+void __stdcall H::IBaseClientDll_CreateMove(
+  int sequence_number, float input_sample_frametime, bool active)
+{
+
+  return U::VMTHookMgr::GetHook(XS("IBaseClientDll_CreateMove"))->
+    GetOriginFn<IBaseClientDll_CreateMoveFn>()(
+      sequence_number, input_sample_frametime, active);
 }

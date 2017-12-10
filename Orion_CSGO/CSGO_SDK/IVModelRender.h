@@ -93,17 +93,6 @@ namespace SDK
 		ADDDECAL_TO_ALL_LODS = -1
 	};
 
-	namespace TABLE
-	{
-		namespace IVModelRender
-		{
-			enum
-			{
-				DrawModelExecute = 21 ,
-			};
-		}
-	}
-
 	class IVModelRender
 	{
 	public:

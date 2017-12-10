@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Engine
+namespace E
 {
 	class CBaseAttributableItem;
 	class CBaseViewModel;
@@ -9,18 +9,18 @@ namespace Engine
 	{
 	public:
 
+    bool			GetWeaponReload();
 		int				GetWeaponId();
+    int				GetWeaponAmmo();
+    float			GetNextPrimaryAttack();
+    int				GetZoomLevel();
 		int				GetWeaponType();
-		int				GetWeaponAmmo();
-		int				GetZoomLevel();
-		bool			GetWeaponReload();
-		float			GetNextPrimaryAttack();
 
+    CBaseAttributableItem*	GeteAttributableItem();
 		CWeaponInfo*			GetWeaponInfo();
-		CBaseAttributableItem*	GeteAttributableItem();
 
+    const char*		GetPrintName();
 		const char*		GetName();
-		const char*		GetPrintName();
 
 	};
 
@@ -28,16 +28,16 @@ namespace Engine
 	{
 	public:
 
-		int*			GetItemDefinitionIndex();
+    int*			GetFallbackStatTrak();
 		int*			GetItemIDHigh();
-		int*			GetAccountID();
-		int*			GetEntityQuality();
 		int*			GetOriginalOwnerXuidLow();
-		int*			GetOriginalOwnerXuidHigh();
+    int*			GetItemDefinitionIndex();
 		int*			GetFallbackPaintKit();
+    int*			GetAccountID();
+    int*			GetEntityQuality();
 		float*			GetFallbackWear();
+    int*			GetOriginalOwnerXuidHigh();
 		int*			GetFallbackSeed();
-		int*			GetFallbackStatTrak();
 		CBaseViewModel*	GetViewModel();
 
 	};

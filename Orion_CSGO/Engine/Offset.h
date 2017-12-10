@@ -1,42 +1,41 @@
 #pragma once
 
-#define FIND_W2MATRIX_PATTERN		"\xA1\x00\x00\x00\x00\x83\xF8\x01\x7E\x11\x69\xC8"
+//#define FIND_W2MATRIX_PATTERN		          "\xA1\x00\x00\x00\x00\x83\xF8\x01\x7E\x11\x69\xC8"
+//#define FIND_W2MATRIX_MASK			          XS("x????xxxxxxx")
 
-#define FIND_W2MATRIX_MASK			XS("x????xxxxxxx")
+#define BASE_PLAYER					              XS("DT_BasePlayer")
+#define BASE_PLAYER_WEAPONS			          XS("m_hMyWeapons")
+#define BASE_PLAYER_WERABLES		          XS("m_hMyWearables")
+#define BASE_PLAYER_VIEWMODEL		          XS("m_hViewModel[0]")
+#define BASE_PLAYER_TICKBASE		          XS("m_nTickBase")
+#define BASE_PLAYER_OBSMODE			          XS("m_iObserverMode")
+#define BASE_PLAYER_OBSERVER		          XS("m_hObserverTarget")
 
-#define BASE_PLAYER					    XS("DT_BasePlayer")
-#define BASE_PLAYER_WEAPONS			XS("m_hMyWeapons")
-#define BASE_PLAYER_WERABLES		XS("m_hMyWearables")
-#define BASE_PLAYER_VIEWMODEL		XS("m_hViewModel[0]")
-#define BASE_PLAYER_TICKBASE		XS("m_nTickBase")
-#define BASE_PLAYER_OBSMODE			XS("m_iObserverMode")
-#define BASE_PLAYER_OBSERVER		XS("m_hObserverTarget")
+#define CS_PLAYER					                XS("DT_CSPlayer")
 
-#define CS_PLAYER					      XS("DT_CSPlayer")
+#define CS_PLAYER_LIFESTATE			          XS("m_lifeState")
 
-#define CS_PLAYER_LIFESTATE			XS("m_lifeState")
+#define CS_PLAYER_HASHELMET			          XS("m_bHasHelmet")
+#define CS_PLAYER_HASHDEFUSER		          XS("m_bHasDefuser")
+#define CS_PLAYER_ISSCOPED			          XS("m_bIsScoped")
 
-#define CS_PLAYER_HASHELMET			XS("m_bHasHelmet")
-#define CS_PLAYER_HASHDEFUSER		XS("m_bHasDefuser")
-#define CS_PLAYER_ISSCOPED			XS("m_bIsScoped")
+#define CS_PLAYER_FOVSTART			          XS("m_iFOVStart")
+#define CS_PLAYER_FLAGS				            XS("m_fFlags")
 
-#define CS_PLAYER_FOVSTART			XS("m_iFOVStart")
-#define CS_PLAYER_FLAGS				  XS("m_fFlags")
+#define CS_PLAYER_HEALTH			            XS("m_iHealth")
+#define CS_PLAYER_ARMOR				            XS("m_ArmorValue")
+#define CS_PLAYER_TEAMNUM			            XS("m_iTeamNum")
+#define CS_PLAYER_SHOTFIRED			          XS("m_iShotsFired")
+#define CS_PLAYER_AIMPUNCHANG		          XS("m_aimPunchAngle")
+#define CS_PLAYER_VIEWPUNCHANG	          XS("m_viewPunchAngle")
+#define CS_PLAYER_VECVELOCITY		          XS("m_vecVelocity[0]")
+#define CS_PLAYER_VECVIEW			            XS("m_vecViewOffset[0]")
+#define CS_PLAYER_EYEANGLES			          XS("m_angEyeAngles")
+#define CS_PLAYER_ACTIVEWEAPON	          XS("m_hActiveWeapon")
 
-#define CS_PLAYER_HEALTH			  XS("m_iHealth")
-#define CS_PLAYER_ARMOR				  XS("m_ArmorValue")
-#define CS_PLAYER_TEAMNUM			  XS("m_iTeamNum")
-#define CS_PLAYER_SHOTFIRED			XS("m_iShotsFired")
-#define CS_PLAYER_AIMPUNCHANG		XS("m_aimPunchAngle")
-#define CS_PLAYER_VIEWPUNCHANG	XS("m_viewPunchAngle")
-#define CS_PLAYER_VECVELOCITY		XS("m_vecVelocity[0]")
-#define CS_PLAYER_VECVIEW			  XS("m_vecViewOffset[0]")
-#define CS_PLAYER_EYEANGLES			XS("m_angEyeAngles")
-#define CS_PLAYER_ACTIVEWEAPON	XS("m_hActiveWeapon")
-
-#define BASE_COMBAT_WEAPON			XS("DT_BaseCombatWeapon")
-#define BASE_COMBAT_WEAPON_CLIP	XS("m_iClip1")
-#define BASE_COMBAT_WEAPON_PRIM	XS("m_flNextPrimaryAttack")
+#define BASE_COMBAT_WEAPON			          XS("DT_BaseCombatWeapon")
+#define BASE_COMBAT_WEAPON_CLIP	          XS("m_iClip1")
+#define BASE_COMBAT_WEAPON_PRIM	          XS("m_flNextPrimaryAttack")
 
 #define BASE_ATTRIBUTABLE_ITEM				    XS("DT_BaseAttributableItem")
 #define BASE_ATTRIBUTABLE_ITEM_INDEX		  XS("m_iItemDefinitionIndex")
@@ -61,7 +60,7 @@
 #define BASE_WEAPON_AWP				            XS("DT_WeaponAWP")
 #define BASE_WEAPON_AWP_ZOOMLEVEL	        XS("m_zoomLevel")
 
-namespace Engine
+namespace E
 {
 	namespace Offset
 	{

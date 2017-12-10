@@ -1,22 +1,22 @@
 #include "../OrionIncludes.h"
 
-C_CheatMgr* C_CheatMgr::sm_pInstance = NULL;
+CM* CM::sm_pInstance = NULL;
 
-C_CheatMgr* C_CheatMgr::Instance()
+CM* CM::Instance()
 {
   if (!sm_pInstance)
   {
-    sm_pInstance = new C_CheatMgr;
+    sm_pInstance = new CM;
   }
   return sm_pInstance;
 }
 
-C_CheatMgr::C_CheatMgr()
+CM::CM()
 {
 
 }
 
-C_CheatMgr::~C_CheatMgr()
+CM::~CM()
 {
   for (auto it = m_mapCheats.begin(); it != m_mapCheats.end(); it++)
   {
@@ -25,9 +25,9 @@ C_CheatMgr::~C_CheatMgr()
   m_mapCheats.clear();
 }
 
-bool C_CheatMgr::RegCheat(C_Cheat* pCheat, const std::string &sCheatName)
+bool CM::RegCheat(C_Cheat* pCheat, const std::string &sCheatName)
 {
-  C_CheatMgr* pCheatMgr = Instance();
+  CM* pCheatMgr = Instance();
 
   if (pCheat == NULL)
     return false;
@@ -44,9 +44,9 @@ bool C_CheatMgr::RegCheat(C_Cheat* pCheat, const std::string &sCheatName)
   return true;
 }
 
-bool C_CheatMgr::UnregCheat(const std::string &sCheatName)
+bool CM::UnregCheat(const std::string &sCheatName)
 {
-  C_CheatMgr* pCheatMgr = Instance();
+  CM* pCheatMgr = Instance();
 
   if (pCheatMgr->m_mapCheats.empty())
     return false;
@@ -63,9 +63,9 @@ bool C_CheatMgr::UnregCheat(const std::string &sCheatName)
   return true;
 }
 
-C_Cheat* C_CheatMgr::GetCheat(const std::string &sCheatName)
+C_Cheat* CM::Get(const std::string &sCheatName)
 {
-  C_CheatMgr* pCheatMgr = Instance();
+  CM* pCheatMgr = Instance();
 
   if (pCheatMgr->m_mapCheats.empty())
     return NULL;
@@ -79,9 +79,9 @@ C_Cheat* C_CheatMgr::GetCheat(const std::string &sCheatName)
   return iterator->second;
 }
 
-std::map<std::string, C_Cheat*> C_CheatMgr::GetCheats()
+std::map<std::string, C_Cheat*> CM::GetCheats()
 {
-  C_CheatMgr* pCheatMgr = Instance();
+  CM* pCheatMgr = Instance();
   return pCheatMgr->m_mapCheats;
 }
 

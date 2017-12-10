@@ -5,17 +5,6 @@ namespace SDK
 	class bf_write;
 	class CEngineSprite;
 
-	namespace TABLE
-	{
-		namespace IBaseClientDLL
-		{
-			enum
-			{
-				FrameStageNotify = 36
-			};
-		}
-	}
-
 	class IBaseClientDLL {
 	public:
 		virtual int				Connect( CreateInterfaceFn appSystemFactory , CGlobalVarsBase *pGlobals ) = 0;

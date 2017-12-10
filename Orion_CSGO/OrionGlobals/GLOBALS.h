@@ -22,4 +22,3 @@ GVAR(SDK::IInputSystem*, pInputSystem, NULL)
 GVAR(bool, bIsMenuShown, false)
 
 
-

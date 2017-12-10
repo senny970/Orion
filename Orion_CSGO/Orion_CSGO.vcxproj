@@ -67,6 +67,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;$(SolutionDir)ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -77,10 +78,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Cheats\C_BunnyHop.h" />
+    <ClInclude Include="Cheats\C_Bhop.h" />
     <ClInclude Include="Cheats\C_Cheat.h" />
     <ClInclude Include="Cheats\C_CheatMgr.h" />
-    <ClInclude Include="CONFIG.h" />
+    <ClInclude Include="Cheats\C_FakeLag.h" />
     <ClInclude Include="CSGO_SDK\BaseTypes.h" />
     <ClInclude Include="CSGO_SDK\ButtonCode.h" />
     <ClInclude Include="CSGO_SDK\CGlobalVarsBase.h" />
@@ -125,12 +126,10 @@
     <ClInclude Include="CSGO_SDK\Vector4D.h" />
     <ClInclude Include="CSGO_SDK\VMatrix.h" />
     <ClInclude Include="CSGO_SDK\Vplane.h" />
-    <ClInclude Include="DEFS.h" />
     <ClInclude Include="Engine\Entity.h" />
     <ClInclude Include="Engine\NetVar.h" />
     <ClInclude Include="Engine\Offset.h" />
     <ClInclude Include="Engine\Weapon.h" />
-    <ClInclude Include="GLOBALS.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
@@ -140,15 +139,20 @@
     <ClInclude Include="ImGui\stb_textedit.h" />
     <ClInclude Include="ImGui\stb_truetype.h" />
     <ClInclude Include="MainHandler.h" />
+    <ClInclude Include="OrionGlobals\CONFIG.h" />
+    <ClInclude Include="OrionGlobals\DEFS.h" />
+    <ClInclude Include="OrionGlobals\GLOBALS.h" />
+    <ClInclude Include="OrionGlobals\VMTS.h" />
     <ClInclude Include="OrionIncludes.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cheats\C_BunnyHop.cpp" />
+    <ClCompile Include="Cheats\C_Bhop.cpp" />
     <ClCompile Include="Cheats\C_Cheat.cpp" />
     <ClCompile Include="Cheats\C_CheatMgr.cpp" />
+    <ClCompile Include="Cheats\C_FakeLag.cpp" />
     <ClCompile Include="CSGO_SDK\CRC.cpp" />
     <ClCompile Include="CSGO_SDK\Vector.cpp" />
     <ClCompile Include="CSGO_SDK\Vector2D.cpp" />

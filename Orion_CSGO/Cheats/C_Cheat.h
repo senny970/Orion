@@ -11,11 +11,10 @@ public:
 
   virtual bool Unload();
 
-  bool m_bInitialized;
   bool m_bEnabled;
   string m_sName;
 
 protected:
-  Engine::CBaseEntity* pLocalPlayer;
+  E::CBaseEntity* pMe;
 };
 

@@ -2,23 +2,18 @@
 
 C_Cheat::C_Cheat(const string &sCheatName)
   : m_sName(sCheatName),
-    m_bInitialized(false),
     m_bEnabled(false)
 {
-  pLocalPlayer = (Engine::CBaseEntity*)G::pEntityList->GetClientEntity(G::pEngine->GetLocalPlayer());
+  pMe = (E::CBaseEntity*)G::pEntityList->GetClientEntity(G::pEngine->GetLocalPlayer());
 }
 
 C_Cheat::~C_Cheat()
 {
+  m_bEnabled = false;
   Unload();
 }
 
 bool C_Cheat::Unload()
 {
-  m_bEnabled = false;
-  m_bInitialized = false;
-
   return UndoChanges();
 }
-
-

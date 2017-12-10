@@ -121,37 +121,37 @@ namespace SDK
 		void EnableInput( bool bEnable )
 		{
 			VirtualFn( void* )( PVOID , bool );
-			GetMethod< OriginalFn >( this , 11 )( this , bEnable );
+			GetVMethod< OriginalFn >( this , 11 )( this , bEnable );
 		}
 
 		bool IsButtonDown( ButtonCode_t code )
 		{
 			VirtualFn( bool )( PVOID , ButtonCode_t );
-			return GetMethod< OriginalFn >( this , 15 )( this , code );
+			return GetVMethod< OriginalFn >( this , 15 )( this , code );
 		}
 
 		void ResetInputState()
 		{
 			VirtualFn( void )( PVOID );
-			GetMethod< OriginalFn >( this , 39 )( this );
+			GetVMethod< OriginalFn >( this , 39 )( this );
 		}
 
 		ButtonCode_t VirtualKeyToButtonCode( int nVirtualKey )
 		{
 			VirtualFn( ButtonCode_t )( PVOID , int );
-			return GetMethod< OriginalFn >( this , 44 )( this , nVirtualKey );
+			return GetVMethod< OriginalFn >( this , 44 )( this , nVirtualKey );
 		}
 
 		int ButtonCodeToVirtualKey( ButtonCode_t code )
 		{
 			VirtualFn( int )( PVOID , ButtonCode_t );
-			return GetMethod< OriginalFn >( this , 45 )( this , code );
+			return GetVMethod< OriginalFn >( this , 45 )( this , code );
 		}
 
 		void GetCursorPosition( int* m_pX , int* m_pY )
 		{
 			VirtualFn( void )( PVOID , int* , int* );
-			GetMethod< OriginalFn >( this , 56 )( this , m_pX , m_pY );
+			GetVMethod< OriginalFn >( this , 56 )( this , m_pX , m_pY );
 		}
 	};
 }

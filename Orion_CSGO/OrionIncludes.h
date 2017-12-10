@@ -34,7 +34,10 @@ using namespace std;
 // Libs
 #include "Utils/Include/Utils.h"
 
-// sdk
+// VMT
+#include "OrionGlobals\VMTS.h"
+
+// SDK
 #include "CSGO_SDK\BaseTypes.h"
 #include "CSGO_SDK\Const.h"
 #include "CSGO_SDK\Definitions.h"
@@ -79,22 +82,26 @@ using namespace std;
 #include "CSGO_SDK\IGameEvent.h"
 #include "CSGO_SDK\TextureGroupNames.h"
 
+// Orion
+#include "OrionGlobals\CONFIG.h"
+#include "OrionGlobals\DEFS.h"
+#include "OrionGlobals\GLOBALS.h"
+
+// ENGINE
 #include "Engine\NetVar.h"
 #include "Engine\Offset.h"
 #include "Engine\Entity.h"
 #include "Engine\Weapon.h"
 
-
-// Orion
-#include "CONFIG.h"
-#include "DEFS.h"
-#include "GLOBALS.h"
-
+// CHEATS
 #include "Cheats\C_Cheat.h"
 #include "Cheats\C_CheatMgr.h"
-#include "Cheats\C_BunnyHop.h"
+#include "Cheats\C_Bhop.h"
+#include "Cheats\C_FakeLag.h"
 
+// HOOKS
 #include "Hooks.h"
 
+// MAIN
 #include "MainHandler.h"
 

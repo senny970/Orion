@@ -22,12 +22,6 @@
     <Filter Include="ImGui\Sources">
       <UniqueIdentifier>{8924a944-9879-48c2-8776-1f19441fa14a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Orion">
-      <UniqueIdentifier>{d39547d5-4393-4cda-b086-d4c53d27de75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Definitions">
-      <UniqueIdentifier>{7537369c-8601-4149-a823-0283521c50bc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Cheats">
       <UniqueIdentifier>{ee8f5a13-844e-4a53-a861-bfa2de0bb84b}</UniqueIdentifier>
     </Filter>
@@ -36,6 +30,9 @@
     </Filter>
     <Filter Include="Engine">
       <UniqueIdentifier>{e1530cf1-5a8d-48f6-b717-7098112faffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OrionGlobals">
+      <UniqueIdentifier>{d39547d5-4393-4cda-b086-d4c53d27de75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,16 +64,7 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="OrionIncludes.h">
-      <Filter>Orion</Filter>
-    </ClInclude>
-    <ClInclude Include="DEFS.h">
-      <Filter>Definitions</Filter>
-    </ClInclude>
-    <ClInclude Include="CONFIG.h">
-      <Filter>Orion</Filter>
-    </ClInclude>
-    <ClInclude Include="GLOBALS.h">
-      <Filter>Definitions</Filter>
+      <Filter>OrionGlobals</Filter>
     </ClInclude>
     <ClInclude Include="Cheats\C_Cheat.h">
       <Filter>Cheats</Filter>
@@ -213,9 +201,6 @@
     <ClInclude Include="CSGO_SDK\Const.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="Cheats\C_BunnyHop.h">
-      <Filter>Cheats</Filter>
-    </ClInclude>
     <ClInclude Include="Cheats\C_CheatMgr.h">
       <Filter>Cheats</Filter>
     </ClInclude>
@@ -230,6 +215,24 @@
     </ClInclude>
     <ClInclude Include="Engine\Weapon.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_Bhop.h">
+      <Filter>Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_FakeLag.h">
+      <Filter>Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="OrionGlobals\CONFIG.h">
+      <Filter>OrionGlobals</Filter>
+    </ClInclude>
+    <ClInclude Include="OrionGlobals\DEFS.h">
+      <Filter>OrionGlobals</Filter>
+    </ClInclude>
+    <ClInclude Include="OrionGlobals\GLOBALS.h">
+      <Filter>OrionGlobals</Filter>
+    </ClInclude>
+    <ClInclude Include="OrionGlobals\VMTS.h">
+      <Filter>OrionGlobals</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -254,7 +257,7 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="OrionDllMain.cpp">
-      <Filter>Orion</Filter>
+      <Filter>OrionGlobals</Filter>
     </ClCompile>
     <ClCompile Include="Cheats\C_Cheat.cpp">
       <Filter>Cheats</Filter>
@@ -274,9 +277,6 @@
     <ClCompile Include="CSGO_SDK\VMatrix.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="Cheats\C_BunnyHop.cpp">
-      <Filter>Cheats</Filter>
-    </ClCompile>
     <ClCompile Include="Cheats\C_CheatMgr.cpp">
       <Filter>Cheats</Filter>
     </ClCompile>
@@ -291,6 +291,12 @@
     </ClCompile>
     <ClCompile Include="Engine\Weapon.cpp">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Bhop.cpp">
+      <Filter>Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_FakeLag.cpp">
+      <Filter>Cheats</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

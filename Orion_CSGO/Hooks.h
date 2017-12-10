@@ -12,6 +12,9 @@ namespace H
 
   bool __stdcall IClientMode_CreateMove(
     float flInputSampleTime, SDK::CUserCmd* pCmd);
+
+  void __stdcall IBaseClientDll_CreateMove(
+    int sequence_number, float input_sample_frametime, bool active);
 }
 
 extern LRESULT ImGui_ImplWin32_WndProcHandler(

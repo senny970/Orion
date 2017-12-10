@@ -1,6 +1,6 @@
 #include "../OrionIncludes.h"
 
-namespace Engine
+namespace E
 {
 
 	char* CBaseEntity::GetPlayerName()
@@ -19,7 +19,7 @@ namespace Engine
 	bool CBaseEntity::IsPlayer()
 	{
 		typedef bool( __thiscall* IsPlayerFn )( void* );
-		return GetMethod<IsPlayerFn>( this , 152 )( this );
+		return GetVMethod<IsPlayerFn>( this , 152 )( this );
 	}
 
 	bool CBaseEntity::IsValid()
@@ -29,7 +29,7 @@ namespace Engine
 
 	bool CBaseEntity::IsDead()
 	{
-		BYTE LifeState = *(PBYTE)( ( DWORD )this + Offset::Entity::m_lifeState );
+		BYTE LifeState = *(PBYTE)( (DWORD)this + Offset::Entity::m_lifeState );
 		return ( LifeState != LIFE_ALIVE );
 	}
 
@@ -79,72 +79,72 @@ namespace Engine
 
 	bool CBaseEntity::HasHelmet()
 	{
-		return *(bool*)( ( DWORD )this + Offset::Entity::m_bHasHelmet );
+		return *(bool*)( (DWORD)this + Offset::Entity::m_bHasHelmet );
 	}
 
 	bool CBaseEntity::HasDefuser()
 	{
-		return *(bool*)( ( DWORD )this + Offset::Entity::m_bHasDefuser );
+		return *(bool*)( (DWORD)this + Offset::Entity::m_bHasDefuser );
 	}
 
 	bool* CBaseEntity::IsSpotted()
 	{
-		return (bool*)( ( DWORD )this + Offset::Entity::m_bSpotted );
+		return (bool*)( (DWORD)this + Offset::Entity::m_bSpotted );
 	}
 
 	int	CBaseEntity::GetFovStart()
 	{
-		return *(PINT)( ( DWORD )this + Offset::Entity::m_iFOVStart );
+		return *(PINT)( (DWORD)this + Offset::Entity::m_iFOVStart );
 	}
 
 	int	CBaseEntity::GetFlags()
 	{
-		return *(PINT)( ( DWORD )this + Offset::Entity::m_fFlags );
+		return *(PINT)( (DWORD)this + Offset::Entity::m_fFlags );
 	}
 	
 	int CBaseEntity::GetHealth()
 	{
-		return *(PINT)( ( DWORD )this + Offset::Entity::m_iHealth );
+		return *(PINT)( (DWORD)this + Offset::Entity::m_iHealth );
 	}
 
 	int	CBaseEntity::GetArmor()
 	{
-		return *(PINT)( ( DWORD )this + Offset::Entity::m_ArmorValue );
+		return *(PINT)( (DWORD)this + Offset::Entity::m_ArmorValue );
 	}
 
 	int	CBaseEntity::GetTeam()
 	{
-		return *(PINT)( ( DWORD )this + Offset::Entity::m_iTeamNum );
+		return *(PINT)( (DWORD)this + Offset::Entity::m_iTeamNum );
 	}
 
 	int CBaseEntity::GetShotsFired()
 	{
-		return *(PINT)( ( DWORD )this + (DWORD)Offset::Entity::m_iShotsFired );
+		return *(PINT)( (DWORD)this + (DWORD)Offset::Entity::m_iShotsFired );
 	}
 
 	int CBaseEntity::GetIsScoped()
 	{
-		return *(PINT)( ( DWORD )this + (DWORD)Offset::Entity::m_bIsScoped );
+		return *(PINT)( (DWORD)this + (DWORD)Offset::Entity::m_bIsScoped );
 	}
 
 	int	CBaseEntity::GetTickBase()
 	{
-		return *(PINT)( ( DWORD )this + (DWORD)Offset::Entity::m_nTickBase );
+		return *(PINT)( (DWORD)this + (DWORD)Offset::Entity::m_nTickBase );
 	}
 
   SDK::ObserverMode_t CBaseEntity::GetObserverMode()
 	{
-		return *(SDK::ObserverMode_t*)( ( DWORD )this + (DWORD)Offset::Entity::m_iObserverMode );
+		return *(SDK::ObserverMode_t*)( (DWORD)this + (DWORD)Offset::Entity::m_iObserverMode );
 	}
 
 	PVOID CBaseEntity::GetObserverTarget()
 	{
-		return ( PVOID )*(PDWORD)( ( DWORD )this + (DWORD)Offset::Entity::m_hObserverTarget );
+		return ( PVOID )*(PDWORD)( (DWORD)this + (DWORD)Offset::Entity::m_hObserverTarget );
 	}
 	
 	PVOID CBaseEntity::GetActiveWeapon()
 	{
-		return (PVOID)( ( DWORD )this + (DWORD)Offset::Entity::m_hActiveWeapon );
+		return (PVOID)( (DWORD)this + (DWORD)Offset::Entity::m_hActiveWeapon );
 	}
 	
 	CBaseWeapon* CBaseEntity::GetBaseWeapon()
@@ -155,38 +155,38 @@ namespace Engine
 	UINT* CBaseEntity::GetWeapons()
 	{
 		// DT_BasePlayer -> m_hMyWeapons
-		return (UINT*)( ( DWORD )this + Offset::Entity::m_hMyWeapons );
+		return (UINT*)( (DWORD)this + Offset::Entity::m_hMyWeapons );
 	}
 
 	UINT* CBaseEntity::GetWearables()
 	{
-		return (UINT*)( ( DWORD )this + Offset::Entity::m_hMyWearables );
+		return (UINT*)( (DWORD)this + Offset::Entity::m_hMyWearables );
 	}
 
 	CBaseViewModel* CBaseEntity::GetViewModel()
 	{
 		// DT_BasePlayer -> m_hViewModel
-		return (CBaseViewModel*)G::pEntityList->GetClientEntityFromHandle( ( PVOID )*(PDWORD)( ( DWORD )this + Offset::Entity::m_hViewModel ) );
+		return (CBaseViewModel*)G::pEntityList->GetClientEntityFromHandle( ( PVOID )*(PDWORD)( (DWORD)this + Offset::Entity::m_hViewModel ) );
 	}
 
   SDK::Vector CBaseEntity::GetAimPunchAngle()
 	{
-		return *(SDK::Vector*)( ( DWORD )this + Offset::Entity::m_aimPunchAngle );
+		return *(SDK::Vector*)( (DWORD)this + Offset::Entity::m_aimPunchAngle );
 	}
 
   SDK::Vector CBaseEntity::GetViewPunchAngle()
 	{
-		return *(SDK::Vector*)( ( DWORD )this + Offset::Entity::m_viewPunchAngle );
+		return *(SDK::Vector*)( (DWORD)this + Offset::Entity::m_viewPunchAngle );
 	}
 
   SDK::Vector CBaseEntity::GetVelocity()
 	{
-		return *(SDK::Vector*)( ( DWORD )this + Offset::Entity::m_vecVelocity );
+		return *(SDK::Vector*)( (DWORD)this + Offset::Entity::m_vecVelocity );
 	}
 
   SDK::Vector CBaseEntity::GetViewOffset()
 	{
-		return *(SDK::Vector*)( ( DWORD )this + Offset::Entity::m_vecViewOffset );
+		return *(SDK::Vector*)( (DWORD)this + Offset::Entity::m_vecViewOffset );
 	}
 
   SDK::Vector CBaseEntity::GetEyePosition()
@@ -196,7 +196,7 @@ namespace Engine
 
   SDK::QAngle CBaseEntity::GetEyeAngles()
 	{
-		return *reinterpret_cast<SDK::QAngle*>( ( DWORD )this + Offset::Entity::m_angEyeAngles );
+		return *reinterpret_cast<SDK::QAngle*>( (DWORD)this + Offset::Entity::m_angEyeAngles );
 	}
 	
   SDK::Vector CBaseEntity::GetBonePosition( int nBone )
@@ -299,7 +299,7 @@ namespace Engine
 		if ( !pHitboxBox || !IsValid() )
 			return vRet;
 		
-		if ( !SetupBones( MatrixArray , MAXSTUDIOBONES , BONE_USED_BY_HITBOX , 0/*Interfaces::GlobalVars()->curtime*/ ) )
+		if ( !SetupBones( MatrixArray , MAXSTUDIOBONES , BONE_USED_BY_HITBOX , 0/*G::pGlobals->curtime*/ ) )
 			return vRet;
 
 		if ( !pHitboxBox->m_Bone || !pHitboxBox->m_vBbmin.IsValid() || !pHitboxBox->m_vBbmax.IsValid() )
@@ -316,32 +316,32 @@ namespace Engine
 	int	CBaseViewModel::GetModelIndex()
 	{
 		// DT_BaseViewModel -> m_nModelIndex
-		return *(int*)( ( DWORD )this + Offset::Entity::m_nModelIndex );
+		return *(int*)( (DWORD)this + Offset::Entity::m_nModelIndex );
 	}
 
 	void CBaseViewModel::SetModelIndex( int nModelIndex )
 	{
 		VirtualFn( void )( PVOID , int );
-		GetMethod< OriginalFn >( this , 75 )( this , nModelIndex );
+		GetVMethod< OriginalFn >( this , 75 )( this , nModelIndex );
 		// DT_BaseViewModel -> m_nModelIndex
-		//*(int*)( ( DWORD )this + Offset::Entity::m_nModelIndex ) = nModelIndex;
+		//*(int*)( (DWORD)this + Offset::Entity::m_nModelIndex ) = nModelIndex;
 	}
 
 	void CBaseViewModel::SetWeaponModel( const char* Filename , IClientEntity* Weapon )
 	{
 		typedef void( __thiscall* SetWeaponModelFn )( void* , const char* , IClientEntity* );
-		return GetMethod<SetWeaponModelFn>( this , 242 )( this , Filename , Weapon );
+		return GetVMethod<SetWeaponModelFn>( this , 242 )( this , Filename , Weapon );
 	}
 
 	DWORD CBaseViewModel::GetOwner()
 	{
 		// DT_BaseViewModel -> m_hOwner
-		return *(PDWORD)( ( DWORD )this + Offset::Entity::m_hOwner );
+		return *(PDWORD)( (DWORD)this + Offset::Entity::m_hOwner );
 	}
 
 	DWORD CBaseViewModel::GetWeapon()
 	{
 		// DT_BaseViewModel -> m_hWeapon
-		return *(PDWORD)( ( DWORD )this + Offset::Entity::m_hWeapon );
+		return *(PDWORD)( (DWORD)this + Offset::Entity::m_hWeapon );
 	}
 }

@@ -12,12 +12,9 @@
 
 #define VirtualFn( cast ) typedef cast( __thiscall* OriginalFn )
 
-template< typename Function > Function GetMethod( PVOID Base , DWORD Index )
+template< typename Function > Function GetVMethod( PVOID Base , DWORD Index )
 {
-	PDWORD* VTablePointer = (PDWORD*)Base;
-	PDWORD VTableFunctionBase = *VTablePointer;
-	DWORD dwAddress = VTableFunctionBase[Index];
-	return (Function)( dwAddress );
+	return (Function)(((unsigned int**)Base)[0][Index]);
 }
 
 typedef struct con_nprint_s

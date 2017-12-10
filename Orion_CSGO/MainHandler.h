@@ -6,7 +6,9 @@ namespace M
   void InitGlobals(HINSTANCE hDllInstance);
   void InitImGui();
   void InitHooks();
+
   void RegCheats();
+
   void ReleaseAll();
 }
 

@@ -1,10 +1,10 @@
 #pragma once
 
-class C_BunnyHop : public C_Cheat
+class C_Bhop : public C_Cheat
 {
 public:
-  C_BunnyHop(const string &cheatName);
-  virtual ~C_BunnyHop();
+  C_Bhop(const string &cheatName);
+  virtual ~C_Bhop();
 
   virtual void Perform(SDK::CUserCmd* pCmd);
   virtual bool UndoChanges();

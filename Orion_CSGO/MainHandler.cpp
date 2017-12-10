@@ -35,6 +35,10 @@ void M::InitGlobals(HINSTANCE hDllInstance)
   void* pInputSysIFace = (void*)(GetProcAddress(U::GetModHandle(
     XS("inputsystem.dll")), XS("CreateInterface")));
   G::pInputSystem = U::FindIFace<SDK::IInputSystem*>(pInputSysIFace, XS("InputSystemVersion"));
+  
+  U::PatchMgr::RegPatch(U::FindPattern(XS("engine.dll"),
+    XS("B3 01 8B 01 8B 40 10 FF D0 84 C0"), XS("pSendPacket"), 1),
+    XS("00"), XS("pSendPacket"));
 }
 
 void M::InitImGui()
@@ -48,23 +52,27 @@ void M::InitHooks()
   G::oWndProc = (WNDPROC)SetWindowLongPtr(G::hCurentWindow,
     GWL_WNDPROC, (LONG)H::WndProc);
 
-  U::VMTHookMgr::RegHook(G::pD3D, U::VMTHook::Tables::D3D_EndScene,
+  U::VMTHookMgr::RegHook(G::pD3D, U::VMTS::D3D::EndScene,
     H::D3D_EndScene, XS("D3D_EndScene"));
   U::VMTHookMgr::ApplyHook(XS("D3D_EndScene"));
 
-  U::VMTHookMgr::RegHook(G::pD3D, U::VMTHook::Tables::D3D_Reset,
+  U::VMTHookMgr::RegHook(G::pD3D, U::VMTS::D3D::Reset,
     H::D3D_Reset, XS("D3D_Reset"));
   U::VMTHookMgr::ApplyHook(XS("D3D_Reset"));
 
-  U::VMTHookMgr::RegHook(G::pClientMode, 24,
+  U::VMTHookMgr::RegHook(G::pClientMode, SDK::VMTS::IClientMode::CreateMove,
     H::IClientMode_CreateMove, XS("IClientMode_CreateMove"));
   U::VMTHookMgr::ApplyHook(XS("IClientMode_CreateMove"));
+
+  U::VMTHookMgr::RegHook(G::pClient, SDK::VMTS::IBaseClientDLL::CreateMove,
+    H::IBaseClientDll_CreateMove, XS("IBaseClientDll_CreateMove"));
+  U::VMTHookMgr::ApplyHook(XS("IBaseClientDll_CreateMove"));
 }
 
 void M::RegCheats()
 {
-#define REG_CHEAT(CHEAT) C_CheatMgr::RegCheat(new CHEAT(XS("" #CHEAT)), XS("" #CHEAT));
-  REG_CHEAT(C_BunnyHop);
+  REG_CHEAT(C_Bhop);
+  REG_CHEAT(C_FakeLag);
 }
 
 void M::InitAll(HINSTANCE hDllInstance)
@@ -76,8 +84,8 @@ void M::InitAll(HINSTANCE hDllInstance)
   InitHooks();
   RegCheats();
 
-  Engine::g_NetVar.Init(G::pClient->GetAllClasses());
-  Engine::Offset::Initialize();
+  E::g_NetVar.Init(G::pClient->GetAllClasses());
+  E::Offset::Initialize();
 
   Beep(700, 500);
 
@@ -95,6 +103,7 @@ void M::ReleaseAll()
 
   ImGui_ImplDX9_Shutdown();
 
+  delete CM::Instance();
   delete U::JMPHookMgr::Instance();
   delete U::PatchMgr::Instance();
   delete U::VMTHookMgr::Instance();

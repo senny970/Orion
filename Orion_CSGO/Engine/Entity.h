@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Engine
+namespace E
 {
 	class CBaseWeapon;
 	class CBaseViewModel;
@@ -11,30 +11,31 @@ namespace Engine
 
 		char*	GetPlayerName();
 
-		bool	IsPlayer();
+    bool	HasDefuser();
+    bool	HasHelmet();
+
+    int		GetFovStart();
+    int		GetArmor();
+    int		GetIsScoped();
+    int		GetTickBase();
+    int		GetTeam();
+    int		GetFlags();
+    int		GetHealth();
+    int		GetShotsFired();
+
+    bool	IsDead();
 		bool	IsValid();
-		bool	IsDead();
+    bool	IsPlayer();
+    bool*	IsSpotted();
 		bool	IsVisible( CBaseEntity* pLocalEntity );
 
-		bool	HasHelmet();
-		bool	HasDefuser();
-		bool*	IsSpotted();
-
-		int		GetFovStart();
-		int		GetFlags();
-		int		GetHealth();
-		int		GetArmor();
-		int		GetTeam();
-		int		GetShotsFired();
-		int		GetIsScoped();
-		int		GetTickBase();
 		SDK::ObserverMode_t GetObserverMode();
 		PVOID GetObserverTarget();
 		
-		PVOID			GetActiveWeapon();
+		PVOID GetActiveWeapon();
 		CBaseWeapon*	GetBaseWeapon();
-		UINT*			GetWeapons();
-		UINT*			GetWearables();
+		UINT* GetWeapons();
+		UINT* GetWearables();
 		CBaseViewModel* GetViewModel();
 
     SDK::Vector	GetAimPunchAngle();
@@ -62,12 +63,12 @@ namespace Engine
 	{
 	public:
 
+    void	SetModelIndex(int nModelIndex);
 		int		GetModelIndex();
-		void	SetModelIndex( int nModelIndex );
 		void	SetWeaponModel( const char* Filename , SDK::IClientEntity* Weapon );
 
+    DWORD	GetWeapon();
 		DWORD	GetOwner();
-		DWORD	GetWeapon();
 
 	};
 

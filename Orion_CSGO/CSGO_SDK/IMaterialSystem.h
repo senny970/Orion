@@ -287,13 +287,13 @@ namespace SDK
 		IMaterial* CreateMaterial( const char* pMaterialName , KeyValues* pVMTKeyValues )
 		{
 			VirtualFn( IMaterial* )( PVOID , const char* , KeyValues* );
-			return GetMethod< OriginalFn >( this , 83 )( this , pMaterialName , pVMTKeyValues );
+			return GetVMethod< OriginalFn >( this , 83 )( this , pMaterialName , pVMTKeyValues );
 		}
 
 		IMaterial* FindMaterial( const char* pMaterialName , const char* pTextureGroupName , bool complain = true , const char* pComplainPrefix = 0 )
 		{
 			VirtualFn( IMaterial* )( PVOID , const char* , const char* , bool , const char* );
-			return GetMethod< OriginalFn >( this , 84 )( this , pMaterialName , pTextureGroupName , complain , pComplainPrefix );
+			return GetVMethod< OriginalFn >( this , 84 )( this , pMaterialName , pTextureGroupName , complain , pComplainPrefix );
 		}
 	};
 }
