@@ -75,8 +75,8 @@ void M::InitHooks()
 
 void M::InitEngine()
 {
-  E::g_NetVar.Init(G::pClient->GetAllClasses());
-  E::Offset::Initialize();
+  Engine::g_NetVar.Init(G::pClient->GetAllClasses());
+  Engine::Offset::Initialize();
 }
 
 void M::RegCheats()
@@ -84,6 +84,7 @@ void M::RegCheats()
   REG_CHEAT(C_Bhop);
   REG_CHEAT(C_FakeLag);
   REG_CHEAT(C_Radar);
+  REG_CHEAT(C_Glowhack);
 }
 
 void M::InitAll(HINSTANCE hDllInstance)

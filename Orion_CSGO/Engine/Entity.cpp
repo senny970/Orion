@@ -1,6 +1,6 @@
 #include "../OrionIncludes.h"
 
-namespace E
+namespace Engine
 {
 
 	char* CBaseEntity::GetPlayerName()
@@ -70,8 +70,10 @@ namespace E
 
 			G::pEngineTrace->TraceRay( ray , PlayerVisibleMask , &filter , &tr );
 
-			if ( tr.m_pEnt == (IClientEntity*)this && !tr.allsolid )
-				return true;
+      if (tr.m_pEnt == (IClientEntity*)this && !tr.allsolid)
+      {
+        return true;
+      }
 		}
 
 		return false;

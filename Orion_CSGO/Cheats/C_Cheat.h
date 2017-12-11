@@ -13,7 +13,7 @@ public:
   virtual bool Unload();
 
 protected:
-  E::CBaseEntity* pMe;
+  Engine::CBaseEntity* pMe;
   bool m_bEnabled;
   string m_sName;
 };

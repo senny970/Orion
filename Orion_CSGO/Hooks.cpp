@@ -33,23 +33,16 @@ HRESULT __stdcall H::D3D_EndScene(IDirect3DDevice9* thisptr)
     if (G::bIsMenuShown)
     {
       if (ImGui::Begin(XS("Orion Hooks Menu"), 0,
-        ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize))
+        ImGuiWindowFlags_NoCollapse
+        //| ImGuiWindowFlags_NoResize
+      ))
       {
-        GET_CHEAT(C_Bhop, pBhop);
-        if (pBhop)
+        map<string, C_Cheat*> mapCheats = CM::GetCheats();
+        for (auto it = mapCheats.begin(); it != mapCheats.end(); it++)
         {
-          pBhop->OnDraw();
+          it->second->OnDraw();
         }
-        GET_CHEAT(C_FakeLag, pFakeLag);
-        if (pFakeLag)
-        {
-          pFakeLag->OnDraw();
-        }
-        GET_CHEAT(C_Radar, pRadar);
-        if (pRadar)
-        {
-          pRadar->OnDraw();
-        }
+
         ImGui::End();
       }
     }
@@ -76,20 +69,10 @@ HRESULT __stdcall H::D3D_Reset(
 bool __stdcall H::IClientMode_CreateMove(
   float flInputSampleTime, SDK::CUserCmd* pCmd)
 {
-  GET_CHEAT(C_Bhop, pBhop);
-  if (pBhop)
+  map<string, C_Cheat*> mapCheats = CM::GetCheats();
+  for (auto it = mapCheats.begin(); it != mapCheats.end(); it++)
   {
-    pBhop->OnCreateMove(pCmd);
-  }
-  GET_CHEAT(C_FakeLag, pFakeLag);
-  if (pFakeLag)
-  {
-    pFakeLag->OnCreateMove(pCmd);
-  }
-  GET_CHEAT(C_Radar, pRadar);
-  if (pRadar)
-  {
-    pRadar->OnCreateMove(pCmd);
+    it->second->OnCreateMove(pCmd);
   }
 
   return U::VMTHookMgr::GetHook(XS("IClientMode_CreateMove"))->

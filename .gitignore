@@ -13,3 +13,5 @@
 *.html
 *.pdb
 *.obj
+*.idb
+*.ilk

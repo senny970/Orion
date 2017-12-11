@@ -85,6 +85,7 @@ using namespace std;
 #include "CSGO_SDK\ISurface.h"
 #include "CSGO_SDK\IGameEvent.h"
 #include "CSGO_SDK\TextureGroupNames.h"
+#include "CSGO_SDK\CGlowObjectManager.h"
 
 // Orion
 #include "OrionGlobals\CONFIG.h"
@@ -103,6 +104,7 @@ using namespace std;
 #include "Cheats\C_Bhop.h"
 #include "Cheats\C_FakeLag.h"
 #include "Cheats\C_Radar.h"
+#include "Cheats\C_Glowhack.h"
 
 // HOOKS
 #include "Hooks.h"

@@ -1,6 +1,6 @@
 #include "../OrionIncludes.h"
 
-namespace E
+namespace Engine
 {
 
 	int CBaseWeapon::GetWeaponId()

@@ -1,6 +1,6 @@
 #include "../OrionIncludes.h"
 
-namespace E
+namespace Engine
 {
 
 	NetVarManager g_NetVar;

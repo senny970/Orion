@@ -1,6 +1,6 @@
 #pragma once
 
-namespace E
+namespace Engine
 {
 	class CBaseAttributableItem;
 	class CBaseViewModel;

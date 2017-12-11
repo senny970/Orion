@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="ImGui">
       <UniqueIdentifier>{078218e8-bcb2-4afc-9f47-3b20eeb892fa}</UniqueIdentifier>
     </Filter>
@@ -29,6 +21,18 @@
     </Filter>
     <Filter Include="OrionGlobals">
       <UniqueIdentifier>{d39547d5-4393-4cda-b086-d4c53d27de75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OrionGlobals\Git">
+      <UniqueIdentifier>{4b6a7c0c-2e9a-4a8c-93f9-c1627f921b20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OrionGlobals\Main">
+      <UniqueIdentifier>{1f50e59e-2ae2-4dcb-ae26-a65ba37aae46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheats\Main">
+      <UniqueIdentifier>{2697def9-4ae6-49ca-b0ca-2a91f548bd44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheats\Custom">
+      <UniqueIdentifier>{30943843-139e-4e3d-975e-8ce5eda095bc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,12 +56,6 @@
     </ClInclude>
     <ClInclude Include="ImGui\stb_truetype.h">
       <Filter>ImGui\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="OrionIncludes.h">
-      <Filter>OrionGlobals</Filter>
-    </ClInclude>
-    <ClInclude Include="Cheats\C_Cheat.h">
-      <Filter>Cheats</Filter>
     </ClInclude>
     <ClInclude Include="CSGO_SDK\CRC.h">
       <Filter>SDK</Filter>
@@ -191,9 +189,6 @@
     <ClInclude Include="CSGO_SDK\Const.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="Cheats\C_CheatMgr.h">
-      <Filter>Cheats</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Entity.h">
       <Filter>Engine</Filter>
     </ClInclude>
@@ -205,12 +200,6 @@
     </ClInclude>
     <ClInclude Include="Engine\Weapon.h">
       <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Cheats\C_Bhop.h">
-      <Filter>Cheats</Filter>
-    </ClInclude>
-    <ClInclude Include="Cheats\C_FakeLag.h">
-      <Filter>Cheats</Filter>
     </ClInclude>
     <ClInclude Include="OrionGlobals\CONFIG.h">
       <Filter>OrionGlobals</Filter>
@@ -224,25 +213,38 @@
     <ClInclude Include="OrionGlobals\VMTS.h">
       <Filter>OrionGlobals</Filter>
     </ClInclude>
-    <ClInclude Include="Cheats\C_Radar.h">
-      <Filter>Cheats</Filter>
+    <ClInclude Include="Hooks.h">
+      <Filter>OrionGlobals</Filter>
     </ClInclude>
     <ClInclude Include="MainHandler.h">
-      <Filter>Sources</Filter>
+      <Filter>OrionGlobals\Main</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="OrionIncludes.h">
+      <Filter>OrionGlobals\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\CGlowObjectManager.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_CheatMgr.h">
+      <Filter>Cheats\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_Cheat.h">
+      <Filter>Cheats\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_Bhop.h">
+      <Filter>Cheats\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_FakeLag.h">
+      <Filter>Cheats\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_Glowhack.h">
+      <Filter>Cheats\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_Radar.h">
+      <Filter>Cheats\Custom</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\README.md">
-      <Filter>Resources</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="MainHandler.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="ImGui\imgui.cpp">
       <Filter>ImGui\Sources</Filter>
     </ClCompile>
@@ -251,15 +253,6 @@
     </ClCompile>
     <ClCompile Include="ImGui\imgui_impl_dx9.cpp">
       <Filter>ImGui\Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OrionDllMain.cpp">
-      <Filter>OrionGlobals</Filter>
-    </ClCompile>
-    <ClCompile Include="Cheats\C_Cheat.cpp">
-      <Filter>Cheats</Filter>
     </ClCompile>
     <ClCompile Include="CSGO_SDK\CRC.cpp">
       <Filter>SDK</Filter>
@@ -276,9 +269,6 @@
     <ClCompile Include="CSGO_SDK\VMatrix.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="Cheats\C_CheatMgr.cpp">
-      <Filter>Cheats</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Entity.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -291,14 +281,37 @@
     <ClCompile Include="Engine\Weapon.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Hooks.cpp">
+      <Filter>OrionGlobals</Filter>
+    </ClCompile>
+    <ClCompile Include="MainHandler.cpp">
+      <Filter>OrionGlobals\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="OrionDllMain.cpp">
+      <Filter>OrionGlobals\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Cheat.cpp">
+      <Filter>Cheats\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_CheatMgr.cpp">
+      <Filter>Cheats\Main</Filter>
+    </ClCompile>
     <ClCompile Include="Cheats\C_Bhop.cpp">
-      <Filter>Cheats</Filter>
+      <Filter>Cheats\Custom</Filter>
     </ClCompile>
     <ClCompile Include="Cheats\C_FakeLag.cpp">
-      <Filter>Cheats</Filter>
+      <Filter>Cheats\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Glowhack.cpp">
+      <Filter>Cheats\Custom</Filter>
     </ClCompile>
     <ClCompile Include="Cheats\C_Radar.cpp">
-      <Filter>Cheats</Filter>
+      <Filter>Cheats\Custom</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Filter>OrionGlobals\Git</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -260,18 +260,19 @@ namespace SDK
 
 		Ray_t() : m_pWorldAxisTransform( NULL ) {}
 
-		void Init( Vector const& start , Vector const& end ) {
+		void Init( Vector const& start , Vector const& end )
+    {
 			m_Delta = end - start;
 
 			m_IsSwept = ( m_Delta.LengthSqr() != 0 );
 
+      m_IsRay = true;
+      m_pWorldAxisTransform = NULL;
+
+      m_StartOffset.Init();
 			m_Extents.Init();
 
-			m_pWorldAxisTransform = NULL;
-			m_IsRay = true;
-
 			// Offset m_Start to be in the center of the box...
-			m_StartOffset.Init();
 			VectorCopy( start , m_Start );
 		}
 

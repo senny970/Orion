@@ -10,9 +10,8 @@ public:
   virtual bool UndoChanges();
   virtual bool OnDraw();
 
-  int m_iMaxLagTicks;
-
 private:
   int m_iLaggedTickCount;
+  int m_iMaxLagTicks;
 };
 

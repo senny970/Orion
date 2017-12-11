@@ -18,7 +18,7 @@ namespace U
 {
   extern bool bDebug;
 
-  enum ValueTypes
+  enum class ValueTypes
   {
     UnknownValue,
     IntValue,

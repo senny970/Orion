@@ -53,7 +53,8 @@ namespace SDK
 	// initialization
 	//-----------------------------------------------------------------------------
 
-	void Vector::Init( vec_t ix, vec_t iy, vec_t iz ) {
+	void Vector::Init( vec_t ix, vec_t iy, vec_t iz )
+  {
 		x = ix; y = iy; z = iz;
 	}
 

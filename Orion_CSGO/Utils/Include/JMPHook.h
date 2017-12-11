@@ -12,7 +12,7 @@ namespace U
   {
   public:
 
-    enum JMPTypes
+    enum class JMPTypes
     {
       JMPType_Call = OPCODE_CALL,
       JMPType_JMP = OPCODE_JMP,
@@ -23,7 +23,7 @@ namespace U
       void* pJumpStart,
       int iInstructionLength,
       void* pJumpTo,
-      JMPTypes JMPType = JMPType_Call,
+      JMPTypes JMPType = JMPTypes::JMPType_Call,
       bool bSaveRegistersBeforeCall = true);
 
     ~JMPHook();

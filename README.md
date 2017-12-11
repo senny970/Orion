@@ -1,5 +1,7 @@
 # Orion CSGO Instant hooks!
 
+v0.6 Glowhack added
+
 v0.5 jmp-hook fakelag, crushes fixes
 
 v0.4 fakelag

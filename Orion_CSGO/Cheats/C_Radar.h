@@ -10,6 +10,7 @@ public:
   virtual bool UndoChanges();
   virtual bool OnDraw();
 
-  
+private:
+
 };
 

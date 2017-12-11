@@ -1,6 +1,6 @@
 #pragma once
 
-namespace E
+namespace Engine
 {
 	class CBaseWeapon;
 	class CBaseViewModel;
@@ -79,7 +79,7 @@ namespace E
 		TEAM_CT
 	};
 
-	enum class CLIENT_CLASS_ID
+	enum class CLASS_ID
 	{
 		CTestTraceline = 194 ,
 		CTEWorldDecal = 195 ,

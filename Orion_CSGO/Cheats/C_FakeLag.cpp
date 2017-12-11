@@ -1,11 +1,10 @@
 #include "../OrionIncludes.h"
 
 C_FakeLag::C_FakeLag(const string& sCheatName)
-  : C_Cheat(sCheatName),
-    m_iLaggedTickCount(0),
-    m_iMaxLagTicks(1)
+  : C_Cheat(sCheatName)
 {
-
+  m_iLaggedTickCount = 0;
+  m_iMaxLagTicks = 1;
 }
 
 C_FakeLag::~C_FakeLag()

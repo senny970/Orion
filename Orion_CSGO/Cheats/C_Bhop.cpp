@@ -1,10 +1,9 @@
 #include "../OrionIncludes.h"
 
 C_Bhop::C_Bhop(const string& sCheatName)
-  : C_Cheat(sCheatName),
-    m_bAutoStrafe(false)
+  : C_Cheat(sCheatName)
 {
-
+  m_bAutoStrafe = false;
 }
 
 C_Bhop::~C_Bhop()

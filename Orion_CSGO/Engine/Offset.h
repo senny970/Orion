@@ -60,10 +60,12 @@
 #define BASE_WEAPON_AWP				            XS("DT_WeaponAWP")
 #define BASE_WEAPON_AWP_ZOOMLEVEL	        XS("m_zoomLevel")
 
-namespace E
+namespace Engine
 {
 	namespace Offset
 	{
+    extern DWORD GlowManager;
+
 		namespace Entity
 		{
 

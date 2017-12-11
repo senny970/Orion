@@ -21,6 +21,7 @@ void C_Radar::OnCreateMove(SDK::CUserCmd* pCmd)
 
 bool C_Radar::OnDraw()
 {
+  ImGui::Checkbox(XS("Enable radarhack"), &m_bEnabled);
   return true;
 }
 

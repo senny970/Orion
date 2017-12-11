@@ -45,14 +45,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>
-    </LinkIncremental>
     <TargetExt>_debug.dll</TargetExt>
-    <OutDir>$(SolutionDir)DLL\</OutDir>
+    <OutDir>.vs\</OutDir>
+    <IntDir>.vs\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <TargetExt>_release.dll</TargetExt>
-    <OutDir>$(SolutionDir)DLL\</OutDir>
+    <IntDir>.vs\</IntDir>
+    <OutDir>.vs\</OutDir>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -66,45 +68,75 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <MinimalRebuild>false</MinimalRebuild>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <AssemblerListingLocation>$(Configuration)</AssemblerListingLocation>
-      <ProgramDataBaseFileName>$(Configuration)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <BrowseInformationFile>$(Configuration)$(PlatformToolsetVersion).pdb</BrowseInformationFile>
+      <AssemblerListingLocation>.vs\</AssemblerListingLocation>
+      <ObjectFileName>.vs\</ObjectFileName>
+      <XMLDocumentationFileName>.vs\</XMLDocumentationFileName>
+      <ProgramDataBaseFileName>.vs\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006 /IGNORE:4088 %(AdditionalOptions)</AdditionalOptions>
+      <ProgramDatabaseFile>.vs\$(TargetName).pdb</ProgramDatabaseFile>
+      <OutputFile>$(SolutionDir)DLL\$(TargetName)$(TargetExt)</OutputFile>
+      <ManifestFile>.vs\$(TargetName)$(TargetExt).intermediate.manifest</ManifestFile>
+      <ProfileGuidedDatabase>.vs\$(TargetName).pgd</ProfileGuidedDatabase>
+      <ImportLibrary>.vs\$(TargetName).lib</ImportLibrary>
     </Link>
+    <BuildLog />
+    <BuildLog>
+      <Path>.vs\$(MSBuildProjectName).log</Path>
+    </BuildLog>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;ORIONCSGO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(DXSDK_DIR)Include;$(SolutionDir)ImGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AssemblerListingLocation>$(Configuration)</AssemblerListingLocation>
-      <ProgramDataBaseFileName>$(Configuration)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <BrowseInformationFile>
+      </BrowseInformationFile>
+      <AssemblerListingLocation>.vs\</AssemblerListingLocation>
+      <ObjectFileName>.vs\</ObjectFileName>
+      <ProgramDataBaseFileName>.vs\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <XMLDocumentationFileName>.vs\</XMLDocumentationFileName>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(DXSDK_DIR)Lib\x86;%(AdditionalIncludeDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/IGNORE:4006 /IGNORE:4088 %(AdditionalOptions)</AdditionalOptions>
+      <ProgramDatabaseFile>.vs\$(TargetName).pdb</ProgramDatabaseFile>
+      <OutputFile>$(SolutionDir)DLL\$(TargetName)$(TargetExt)</OutputFile>
+      <ManifestFile>.vs\$(TargetName)$(TargetExt).intermediate.manifest</ManifestFile>
+      <ProfileGuidedDatabase>.vs\$(TargetName).pgd</ProfileGuidedDatabase>
+      <ImportLibrary>.vs\$(TargetName).lib</ImportLibrary>
     </Link>
+    <BuildLog>
+      <Path>.vs\$(MSBuildProjectName).log</Path>
+    </BuildLog>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Cheats\C_Bhop.h" />
     <ClInclude Include="Cheats\C_Cheat.h" />
     <ClInclude Include="Cheats\C_CheatMgr.h" />
     <ClInclude Include="Cheats\C_FakeLag.h" />
+    <ClInclude Include="Cheats\C_Glowhack.h" />
     <ClInclude Include="Cheats\C_Radar.h" />
     <ClInclude Include="CSGO_SDK\BaseTypes.h" />
     <ClInclude Include="CSGO_SDK\ButtonCode.h" />
     <ClInclude Include="CSGO_SDK\CGlobalVarsBase.h" />
+    <ClInclude Include="CSGO_SDK\CGlowObjectManager.h" />
     <ClInclude Include="CSGO_SDK\CHandle.h" />
     <ClInclude Include="CSGO_SDK\CInput.h" />
     <ClInclude Include="CSGO_SDK\ClientClass.h" />
@@ -173,6 +205,7 @@
     <ClCompile Include="Cheats\C_Cheat.cpp" />
     <ClCompile Include="Cheats\C_CheatMgr.cpp" />
     <ClCompile Include="Cheats\C_FakeLag.cpp" />
+    <ClCompile Include="Cheats\C_Glowhack.cpp" />
     <ClCompile Include="Cheats\C_Radar.cpp" />
     <ClCompile Include="CSGO_SDK\CRC.cpp" />
     <ClCompile Include="CSGO_SDK\Vector.cpp" />
