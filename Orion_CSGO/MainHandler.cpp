@@ -7,6 +7,8 @@ void M::InitGlobals(HINSTANCE hDllInstance)
   G::pD3D = U::GetD3D();
   G::bSendPacket = true;
 
+  G::pRender = new Engine::CRender(G::pD3D);
+
   void* pEngineIFace = (void*)(GetProcAddress(U::GetModHandle(
     XS("engine.dll")), XS("CreateInterface")));
   G::pEngine = U::FindIFace<SDK::IVEngineClient*>(pEngineIFace, XS("VEngineClient"));
@@ -85,6 +87,10 @@ void M::RegCheats()
   REG_CHEAT(C_FakeLag);
   REG_CHEAT(C_Radar);
   REG_CHEAT(C_Glowhack);
+  REG_CHEAT(C_Visuals);
+  REG_CHEAT(C_Aimbot);
+  REG_CHEAT(C_Triggerbot);
+  
 }
 
 void M::InitAll(HINSTANCE hDllInstance)
@@ -117,7 +123,10 @@ void M::ReleaseAll()
   delete U::VMTHookMgr::Instance();
   delete U::JMPHookMgr::Instance();
   delete U::PatchMgr::Instance();
+
   delete CM::Instance();
+
+  delete G::pRender;
 
   SetWindowLongPtr(G::hCurentWindow, GWL_WNDPROC, (LONG)G::oWndProc);
 

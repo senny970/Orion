@@ -8,7 +8,8 @@ public:
 
   virtual void OnCreateMove(SDK::CUserCmd* pCmd);
   virtual bool UndoChanges();
-  virtual bool OnDraw();
+  virtual void OnDrawMenu();
+  virtual void OnDraw();
 
 private:
 

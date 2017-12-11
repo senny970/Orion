@@ -26,10 +26,19 @@ LRESULT __stdcall H::WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 HRESULT __stdcall H::D3D_EndScene(IDirect3DDevice9* thisptr)
 {
+  G::pEngine->GetScreenSize(G::iScreenWidth, G::iScreenHeight);
+
   if (!G::pEngine->IsTakingScreenshot() && G::pEngine->IsActiveApp())
   {
     ImGui_ImplDX9_NewFrame();
-    
+
+    map<string, C_Cheat*> mapCheats = CM::GetCheats();
+
+    for (auto it = mapCheats.begin(); it != mapCheats.end(); ++it)
+    {
+      it->second->OnDraw();
+    }
+
     if (G::bIsMenuShown)
     {
       if (ImGui::Begin(XS("Orion Hooks Menu"), 0,
@@ -37,10 +46,9 @@ HRESULT __stdcall H::D3D_EndScene(IDirect3DDevice9* thisptr)
         //| ImGuiWindowFlags_NoResize
       ))
       {
-        map<string, C_Cheat*> mapCheats = CM::GetCheats();
-        for (auto it = mapCheats.begin(); it != mapCheats.end(); it++)
+        for (auto it = mapCheats.begin(); it != mapCheats.end(); ++it)
         {
-          it->second->OnDraw();
+          it->second->OnDrawMenu();
         }
 
         ImGui::End();
@@ -70,8 +78,9 @@ bool __stdcall H::IClientMode_CreateMove(
   float flInputSampleTime, SDK::CUserCmd* pCmd)
 {
   map<string, C_Cheat*> mapCheats = CM::GetCheats();
-  for (auto it = mapCheats.begin(); it != mapCheats.end(); it++)
+  for (auto it = mapCheats.begin(); it != mapCheats.end(); ++it)
   {
+    it->second->UpdateEntities();
     it->second->OnCreateMove(pCmd);
   }
 

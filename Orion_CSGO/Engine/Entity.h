@@ -24,10 +24,12 @@ namespace Engine
     int		GetShotsFired();
 
     bool	IsDead();
-		bool	IsValid();
+		bool	IsAlive();
     bool	IsPlayer();
     bool*	IsSpotted();
 		bool	IsVisible( CBaseEntity* pLocalEntity );
+
+    float* GetFlashDuration();
 
 		SDK::ObserverMode_t GetObserverMode();
 		PVOID GetObserverTarget();

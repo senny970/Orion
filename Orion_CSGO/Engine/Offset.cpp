@@ -16,6 +16,7 @@ namespace Engine
 			DWORD m_hObserverTarget = 0;
 
 			DWORD m_lifeState = 0;
+      DWORD m_flFlashDuration = 0;
 			
 			DWORD m_bHasHelmet = 0;
 			DWORD m_bHasDefuser = 0;
@@ -77,6 +78,7 @@ namespace Engine
 			Entity::m_hObserverTarget = g_NetVar.GetOffset( BASE_PLAYER , BASE_PLAYER_OBSERVER );
 
 			Entity::m_lifeState = g_NetVar.GetOffset( CS_PLAYER , CS_PLAYER_LIFESTATE );
+      Entity::m_flFlashDuration = g_NetVar.GetOffset(CS_PLAYER, CS_PLAYER_FLASHDURATION);
 
 			Entity::m_bHasHelmet = g_NetVar.GetOffset( CS_PLAYER , CS_PLAYER_HASHELMET );
 			Entity::m_bHasDefuser = g_NetVar.GetOffset( CS_PLAYER , CS_PLAYER_HASHDEFUSER );
@@ -120,6 +122,7 @@ namespace Engine
 			Entity::m_bSpotted = g_NetVar.GetOffset( BASE_ENTITY , BASE_ENTITY_SPOTTED );
 
 			Entity::m_zoomLevel = g_NetVar.GetOffset( BASE_WEAPON_AWP , BASE_WEAPON_AWP_ZOOMLEVEL );
+
 
 			return true;
 		}

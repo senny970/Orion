@@ -18,7 +18,7 @@ CM::CM()
 
 CM::~CM()
 {
-  for (auto it = m_mapCheats.begin(); it != m_mapCheats.end(); it++)
+  for (auto it = m_mapCheats.begin(); it != m_mapCheats.end(); ++it)
   {
     it->second->Unload();
     delete it->second;

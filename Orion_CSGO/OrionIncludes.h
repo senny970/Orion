@@ -87,16 +87,18 @@ using namespace std;
 #include "CSGO_SDK\TextureGroupNames.h"
 #include "CSGO_SDK\CGlowObjectManager.h"
 
-// Orion
-#include "OrionGlobals\CONFIG.h"
-#include "OrionGlobals\DEFS.h"
-#include "OrionGlobals\GLOBALS.h"
-
 // ENGINE
 #include "Engine\NetVar.h"
 #include "Engine\Offset.h"
 #include "Engine\Entity.h"
 #include "Engine\Weapon.h"
+#include "Engine\Render.h"
+
+// Orion
+#include "OrionGlobals\CONFIG.h"
+#include "OrionGlobals\DEFS.h"
+#include "OrionGlobals\GLOBALS.h"
+
 
 // CHEATS
 #include "Cheats\C_Cheat.h"
@@ -105,6 +107,9 @@ using namespace std;
 #include "Cheats\C_FakeLag.h"
 #include "Cheats\C_Radar.h"
 #include "Cheats\C_Glowhack.h"
+#include "Cheats\C_Visuals.h"
+#include "Cheats\C_Aimbot.h"
+#include "Cheats\C_Triggerbot.h"
 
 // HOOKS
 #include "Hooks.h"

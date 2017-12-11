@@ -22,7 +22,7 @@ namespace Engine
 		return GetVMethod<IsPlayerFn>( this , 152 )( this );
 	}
 
-	bool CBaseEntity::IsValid()
+	bool CBaseEntity::IsAlive()
 	{
 		return ( !IsDead() && GetHealth() > 0 && !IsDormant() );
 	}
@@ -35,7 +35,7 @@ namespace Engine
 
 	bool CBaseEntity::IsVisible( CBaseEntity* pLocalEntity )
 	{
-		if ( !pLocalEntity->IsValid() )
+		if ( !pLocalEntity->IsAlive() )
 			return false;
 
 		SDK::Vector vSrcOrigin = pLocalEntity->GetEyePosition();
@@ -118,6 +118,11 @@ namespace Engine
 	{
 		return *(PINT)( (DWORD)this + Offset::Entity::m_iTeamNum );
 	}
+
+  float* CBaseEntity::GetFlashDuration()
+  {
+    return (float*)((DWORD)this + Offset::Entity::m_flFlashDuration);
+  }
 
 	int CBaseEntity::GetShotsFired()
 	{
@@ -298,7 +303,7 @@ namespace Engine
 
     SDK::mstudiobbox_t* pHitboxBox = GetHitBox( nHitbox );
 
-		if ( !pHitboxBox || !IsValid() )
+		if ( !pHitboxBox || !IsAlive() )
 			return vRet;
 		
 		if ( !SetupBones( MatrixArray , MAXSTUDIOBONES , BONE_USED_BY_HITBOX , 0/*G::pGlobals->curtime*/ ) )

@@ -15,35 +15,42 @@ void C_Bhop::OnCreateMove(SDK::CUserCmd* pCmd)
 {
   if (m_bEnabled)
   {
-    if (!(pMe->GetFlags() & FL_ONGROUND))
+    if (pMe && pMe->IsAlive())
     {
-      if (pCmd->buttons & IN_JUMP)
+      if (!(pMe->GetFlags() & FL_ONGROUND))
       {
-        pCmd->buttons &= ~IN_JUMP;
-      }
-      if (m_bAutoStrafe)
-      {
-        if (pCmd->mousedx < 0)
+        if (pCmd->buttons & IN_JUMP)
         {
-          pCmd->sidemove = -450.0f;
+          pCmd->buttons &= ~IN_JUMP;
         }
-        else if (pCmd->mousedx > 0)
+        if (m_bAutoStrafe)
         {
-          pCmd->sidemove = 450.0f;
+          if (pCmd->mousedx < 0)
+          {
+            pCmd->sidemove = -450.0f;
+          }
+          else if (pCmd->mousedx > 0)
+          {
+            pCmd->sidemove = 450.0f;
+          }
         }
       }
     }
   }
 }
 
-bool C_Bhop::OnDraw()
+void C_Bhop::OnDrawMenu()
 {
   ImGui::Checkbox(XS("Enable bunnyhop"), &m_bEnabled);
   if (m_bEnabled)
   {
     ImGui::Checkbox(XS("Autostrafe"), &m_bAutoStrafe);
   }
-  return true;
+}
+
+void C_Bhop::OnDraw()
+{
+
 }
 
 bool C_Bhop::UndoChanges()

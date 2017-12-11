@@ -37,14 +37,18 @@ void C_FakeLag::OnCreateMove(SDK::CUserCmd* pCmd)
   }
 }
 
-bool C_FakeLag::OnDraw()
+void C_FakeLag::OnDrawMenu()
 {
   ImGui::Checkbox(XS("Enable fakelag"), &m_bEnabled);
   if (m_bEnabled)
   {
     ImGui::SliderInt(XS("Fakelag value"), &m_iMaxLagTicks, 1, 5);
   }
-  return true;
+}
+
+void C_FakeLag::OnDraw()
+{
+
 }
 
 bool C_FakeLag::UndoChanges()

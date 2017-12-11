@@ -19,14 +19,11 @@ GVAR(SDK::IMaterialSystem*, pMaterialSystem, NULL)
 GVAR(SDK::ISurface*, pSurface, NULL)
 GVAR(SDK::IGameEventManager2*, pGameEventMgr, NULL)
 GVAR(SDK::IInputSystem*, pInputSystem, NULL)
+GVAR(int, iScreenWidth, 0)
+GVAR(int, iScreenHeight, 0)
 GVAR(bool, bIsMenuShown, false)
 GVAR(bool, bSendPacket, true)
-//GVAR(char, bSendPacket2, true)
-//GVAR(signed char, bSendPacket3, true)
-//GVAR(unsigned char, bSendPacket4, true)
-//GVAR(int, bSendPacket5, true)
-//GVAR(signed int, bSendPacket6, true)
-//GVAR(unsigned int, bSendPacket7, true)
-
+GVAR(Engine::CRender*, pRender, nullptr)
+GVAR(SDK::CUserCmd*, pCmd, nullptr)
 
 

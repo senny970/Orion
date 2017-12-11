@@ -26,6 +26,10 @@ namespace U
     StringValue
   };
 
+  bool World2Screen(int iScreenSizeWidth, int iScreenHeight,
+    float &flOrigin_X, float &flOrigin_Y, float &flOrigin_Z,
+    float &flScreen_X, float &flScreen_Y, float* pflMatrix);
+
   IDirect3DDevice9* GetD3D();
 
   HMODULE GetModHandle(const std::string &moduleName);

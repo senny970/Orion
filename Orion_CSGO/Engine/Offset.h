@@ -12,6 +12,7 @@
 #define BASE_PLAYER_OBSERVER		          XS("m_hObserverTarget")
 
 #define CS_PLAYER					                XS("DT_CSPlayer")
+#define CS_PLAYER_FLASHDURATION         XS("m_flFlashDuration")
 
 #define CS_PLAYER_LIFESTATE			          XS("m_lifeState")
 
@@ -77,6 +78,7 @@ namespace Engine
 			extern DWORD m_hObserverTarget;
 			
 			extern DWORD m_lifeState;
+      extern DWORD m_flFlashDuration;
 
 			extern DWORD m_bHasHelmet;
 			extern DWORD m_bHasDefuser;
@@ -120,6 +122,7 @@ namespace Engine
 			extern DWORD m_bSpotted;
 
 			extern DWORD m_zoomLevel;
+
 
 		}
 

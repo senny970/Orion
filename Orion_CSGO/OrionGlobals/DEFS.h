@@ -1,5 +1,7 @@
 #pragma once
 
+#define MAX_PLAYERS 64
+
 #define GVAR(TYPE, VAR, DEF) namespace G { extern __declspec(selectany) TYPE VAR = DEF; }
 #define GET_CHEAT(CLASS, VAR) CLASS* VAR = (CLASS*)CM::Get(XS("" #CLASS));
 #define REG_CHEAT(CH_CLASS) CM::RegCheat(new CH_CLASS(XS("" #CH_CLASS)), XS("" #CH_CLASS));

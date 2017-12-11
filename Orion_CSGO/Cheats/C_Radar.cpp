@@ -15,14 +15,21 @@ void C_Radar::OnCreateMove(SDK::CUserCmd* pCmd)
 {
   if (m_bEnabled)
   {
-    
+    for each (Engine::CBaseEntity* pEnemy in m_vEnemies)
+    {
+      *pEnemy->IsSpotted() = true;
+    }
   }
 }
 
-bool C_Radar::OnDraw()
+void C_Radar::OnDrawMenu()
 {
   ImGui::Checkbox(XS("Enable radarhack"), &m_bEnabled);
-  return true;
+}
+
+void C_Radar::OnDraw()
+{
+
 }
 
 bool C_Radar::UndoChanges()

@@ -1,10 +1,10 @@
 #pragma once
 
-class C_FakeLag : public C_Cheat
+class C_Aimbot : public C_Cheat
 {
 public:
-  C_FakeLag(const string &cheatName);
-  virtual ~C_FakeLag();
+  C_Aimbot(const string &cheatName);
+  virtual ~C_Aimbot();
 
   virtual void OnCreateMove(SDK::CUserCmd* pCmd);
   virtual bool UndoChanges();
@@ -12,7 +12,6 @@ public:
   virtual void OnDraw();
 
 private:
-  int m_iLaggedTickCount;
-  int m_iMaxLagTicks;
+
 };
 

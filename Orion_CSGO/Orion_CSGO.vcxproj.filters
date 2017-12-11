@@ -243,6 +243,18 @@
     <ClInclude Include="Cheats\C_Radar.h">
       <Filter>Cheats\Custom</Filter>
     </ClInclude>
+    <ClInclude Include="Cheats\C_Visuals.h">
+      <Filter>Cheats\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Render.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_Aimbot.h">
+      <Filter>Cheats\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\C_Triggerbot.h">
+      <Filter>Cheats\Custom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImGui\imgui.cpp">
@@ -306,6 +318,18 @@
       <Filter>Cheats\Custom</Filter>
     </ClCompile>
     <ClCompile Include="Cheats\C_Radar.cpp">
+      <Filter>Cheats\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Visuals.cpp">
+      <Filter>Cheats\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Render.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Aimbot.cpp">
+      <Filter>Cheats\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Triggerbot.cpp">
       <Filter>Cheats\Custom</Filter>
     </ClCompile>
   </ItemGroup>
