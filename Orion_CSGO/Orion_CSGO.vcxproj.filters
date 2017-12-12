@@ -255,6 +255,9 @@
     <ClInclude Include="Cheats\C_Triggerbot.h">
       <Filter>Cheats\Custom</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Utils.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImGui\imgui.cpp">
@@ -331,6 +334,9 @@
     </ClCompile>
     <ClCompile Include="Cheats\C_Triggerbot.cpp">
       <Filter>Cheats\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Utils.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -412,11 +412,11 @@ namespace SDK
 		virtual void	ClipRayToEntity( const Ray_t &ray , unsigned int fMask , IHandleEntity *pEnt , trace_t *pTrace ) = 0;
 		virtual void	ClipRayToCollideable( const Ray_t &ray , unsigned int fMask , ICollideable *pCollide , trace_t *pTrace ) = 0;
 		
-		void TraceRay( const Ray_t &ray , unsigned int fMask , ITraceFilter *pTraceFilter , trace_t *pTrace )
-		{
-			VirtualFn( void )( PVOID , const Ray_t &, unsigned int, ITraceFilter *, trace_t * );
-			GetVMethod<OriginalFn>( this , 5 )( this , ray , fMask , pTraceFilter , pTrace );
-		}
+    virtual void  TraceRay(const Ray_t &ray, unsigned int fMask, ITraceFilter *pTraceFilter, trace_t *pTrace) = 0;
+		//{
+			//VirtualFn( void )( PVOID , const Ray_t &, unsigned int, ITraceFilter *, trace_t * );
+			//GetVMethod<OriginalFn>( this , 5 )( this , ray , fMask , pTraceFilter , pTrace );
+		//}
 
 		virtual void	SetupLeafAndEntityListRay( const Ray_t &ray , ITraceListData *pTraceData ) = 0;
 		virtual void    SetupLeafAndEntityListBox( const Vector &vecBoxMin , const Vector &vecBoxMax , ITraceListData *pTraceData ) = 0;

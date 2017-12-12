@@ -46,8 +46,8 @@ void C_Visuals::OnDraw()
       }
     }
 
-    int punch_x = (int)G::iScreenWidth / 2 + (int)vPunchAngle.y * -10;
-    int punch_y = (int)G::iScreenHeight / 2 + (int)vPunchAngle.x * 10;
+    int punch_x = (int)G::iScreenWidth / 2 + (int)vPunchAngle.y * -9;
+    int punch_y = (int)G::iScreenHeight / 2 + (int)vPunchAngle.x * 9;
 
     G::pRender->DrawFillBox(punch_x - 1, punch_y - 1, 3, 3, SDK::Color::Green());
   }

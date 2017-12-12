@@ -12,6 +12,6 @@ public:
   virtual void OnDraw();
 
 private:
-
+  float m_flWallShootChance;
 };
 

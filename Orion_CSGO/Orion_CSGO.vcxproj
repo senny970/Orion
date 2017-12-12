@@ -185,6 +185,7 @@
     <ClInclude Include="Engine\NetVar.h" />
     <ClInclude Include="Engine\Offset.h" />
     <ClInclude Include="Engine\Render.h" />
+    <ClInclude Include="Engine\Utils.h" />
     <ClInclude Include="Engine\Weapon.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="ImGui\imconfig.h" />
@@ -223,6 +224,7 @@
     <ClCompile Include="Engine\NetVar.cpp" />
     <ClCompile Include="Engine\Offset.cpp" />
     <ClCompile Include="Engine\Render.cpp" />
+    <ClCompile Include="Engine\Utils.cpp" />
     <ClCompile Include="Engine\Weapon.cpp" />
     <ClCompile Include="Hooks.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />

@@ -36,16 +36,6 @@ void C_Glowhack::OnCreateMove(SDK::CUserCmd* pCmd)
 
         switch ((Engine::CLASS_ID)pTargetEntity->GetClientClass()->m_ClassID)
         {
-          case Engine::CLASS_ID::CPlantedC4:
-          {
-            if (m_bDrawC4)
-            {
-              pGlowObject->Set(SDK::Color(84, 0, 100, 250));
-              m_bDrawedOnce = true;
-              break;
-            }
-            break;
-          }
           case Engine::CLASS_ID::CC4:
           {
             if (m_bDrawC4)
@@ -98,6 +88,16 @@ void C_Glowhack::OnCreateMove(SDK::CUserCmd* pCmd)
           }
           default:
           {
+            if (m_bDrawC4)
+            {
+              if (strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("Planted"))
+                  || strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("C4")))
+              {
+                pGlowObject->Set(SDK::Color(84, 0, 100, 250));
+                m_bDrawedOnce = true;
+                break;
+              }
+            }
             if (m_bDrawGranades)
             {
               if (strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("Projectile"))

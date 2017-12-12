@@ -15,7 +15,7 @@ void C_Bhop::OnCreateMove(SDK::CUserCmd* pCmd)
 {
   if (m_bEnabled)
   {
-    if (pMe && pMe->IsAlive())
+    if (pMe && pMe->IsAlive() && pMe->GetTeam() != Engine::TEAM_SPEC)
     {
       if (!(pMe->GetFlags() & FL_ONGROUND))
       {

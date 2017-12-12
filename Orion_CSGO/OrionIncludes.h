@@ -93,6 +93,7 @@ using namespace std;
 #include "Engine\Entity.h"
 #include "Engine\Weapon.h"
 #include "Engine\Render.h"
+#include "Engine\Utils.h"
 
 // Orion
 #include "OrionGlobals\CONFIG.h"
