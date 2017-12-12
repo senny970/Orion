@@ -12,7 +12,6 @@ public:
   virtual void OnDraw();
 
 private:
-  bool m_bDrawedOnce;
   bool m_bDrawC4;
   bool m_bDrawEnemies;
   bool m_bDrawFriendlies;

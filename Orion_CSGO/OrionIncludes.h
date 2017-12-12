@@ -111,6 +111,7 @@ using namespace std;
 #include "Cheats\C_Visuals.h"
 #include "Cheats\C_Aimbot.h"
 #include "Cheats\C_Triggerbot.h"
+#include "Cheats\C_RCS.h"
 
 // HOOKS
 #include "Hooks.h"

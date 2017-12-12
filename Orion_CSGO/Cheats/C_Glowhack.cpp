@@ -3,7 +3,6 @@
 C_Glowhack::C_Glowhack(const string& sCheatName)
   : C_Cheat(sCheatName)
 {
-  m_bDrawedOnce = false;
   m_bDrawC4 = false;
   m_bDrawEnemies = false;
   m_bDrawFriendlies = false;
@@ -27,22 +26,37 @@ void C_Glowhack::OnCreateMove(SDK::CUserCmd* pCmd)
       for (int i = 0; i < pGlowManager->size; i++)
       {
         SDK::CGlowObjectManager::GlowObjectDefinition_t* pGlowObject = &pGlowManager->m_GlowObjectDefinitions[i];
-        Engine::CBaseEntity* pTargetEntity = pGlowObject->GetEntity();
+        Engine::CBaseEntity* pGlowEntity = pGlowObject->GetEntity();
 
-        if (pGlowObject->IsEmpty() || !pTargetEntity)
+        if (pGlowObject->IsEmpty() || !pGlowEntity)
         {
           continue;
         }
 
-        switch ((Engine::CLASS_ID)pTargetEntity->GetClientClass()->m_ClassID)
+        switch ((Engine::CLASS_ID)pGlowEntity->GetClientClass()->m_ClassID)
         {
           case Engine::CLASS_ID::CC4:
           {
             if (m_bDrawC4)
             {
               pGlowObject->Set(SDK::Color(84, 147, 230, 250));
-              m_bDrawedOnce = true;
-              break;
+            }
+            else
+            {
+              pGlowObject->Set(SDK::Color(0, 0, 0, 0));
+            }
+            break;
+          }
+          case Engine::CLASS_ID::CPlantedC4:
+          {
+            if (m_bDrawC4)
+            {
+              //pGlowObject->Set(SDK::Color(84, 0, 100, 250));
+              pGlowObject->Set(SDK::Color(84, 147, 230, 250));
+            }
+            else
+            {
+              pGlowObject->Set(SDK::Color(0, 0, 0, 0));
             }
             break;
           }
@@ -50,73 +64,72 @@ void C_Glowhack::OnCreateMove(SDK::CUserCmd* pCmd)
           {
             if (m_bDrawEnemies)
             {
-              if (pTargetEntity->GetTeam() != pMe->GetTeam())
+              if (pGlowEntity->GetTeam() != pMe->GetTeam())
               {
-                if (pTargetEntity->IsVisible(pMe))
+                if (pGlowEntity->IsVisible(pMe))
                 {
                   pGlowObject->Set(SDK::Color(200, 60, 60, 250));
-                  m_bDrawedOnce = true;
-                  break;
                 }
                 else
                 {
                   pGlowObject->Set(SDK::Color(232, 209, 100, 250));
-                  m_bDrawedOnce = true;
-                  break;
                 }
+                break;
+              }
+              else
+              {
+                pGlowObject->Set(SDK::Color(0, 0, 0, 0));
               }
             }
             if (m_bDrawFriendlies)
             {
-              if (pTargetEntity->GetTeam() == pMe->GetTeam())
+              if (pGlowEntity->GetTeam() == pMe->GetTeam())
               {
-                if (pTargetEntity->IsVisible(pMe))
+                if (pGlowEntity->IsVisible(pMe))
                 {
                   pGlowObject->Set(SDK::Color(72, 219, 75, 250));
-                  m_bDrawedOnce = true;
-                  break;
                 }
                 else
                 {
                   pGlowObject->Set(SDK::Color(100, 200, 255, 250));
-                  m_bDrawedOnce = true;
-                  break;
                 }
+                break;
+              }
+              else
+              {
+                pGlowObject->Set(SDK::Color(0, 0, 0, 0));
               }
             }
             break;
           }
           default:
           {
-            if (m_bDrawC4)
+            if (strstr(pGlowEntity->GetClientClass()->m_pNetworkName, XS("Projectile"))
+                || strstr(pGlowEntity->GetClientClass()->m_pNetworkName, XS("Grenade")))
             {
-              if (strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("Planted"))
-                  || strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("C4")))
-              {
-                pGlowObject->Set(SDK::Color(84, 0, 100, 250));
-                m_bDrawedOnce = true;
-                break;
-              }
-            }
-            if (m_bDrawGranades)
-            {
-              if (strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("Projectile"))
-                  || strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("Grenade")))
+              if (m_bDrawGranades)
               {
                 pGlowObject->Set(SDK::Color(230, 78, 255, 250));
-                m_bDrawedOnce = true;
-                break;
               }
+              else
+              {
+                pGlowObject->Set(SDK::Color(0, 0, 0, 0));
+              }
+              break;
             }
-            if (m_bDrawWeapons)
+            
+            if (strstr(pGlowEntity->GetClientClass()->m_pNetworkName, XS("Weapon"))
+                || strstr(pGlowEntity->GetClientClass()->m_pNetworkName, XS("AK47")))
             {
-              if (strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("Weapon"))
-                  || strstr(pTargetEntity->GetClientClass()->m_pNetworkName, XS("AK47")))
+              if (m_bDrawWeapons)
               {
                 pGlowObject->Set(SDK::Color(255, 138, 46, 250));
-                m_bDrawedOnce = true;
-                break;
               }
+              else
+              {
+                pGlowObject->Set(SDK::Color(0, 0, 0, 0));
+              }
+              break;
             }
             break;
           }
@@ -126,11 +139,7 @@ void C_Glowhack::OnCreateMove(SDK::CUserCmd* pCmd)
   }
   else
   {
-    if (m_bDrawedOnce)
-    {
-      UndoChanges();
-      m_bDrawedOnce = false;
-    }
+    UndoChanges();
   }
 }
 

@@ -54,13 +54,13 @@ void Utils::VectorAngles(const SDK::Vector vForward, SDK::Vector& vAngle)
   }
   else
   {
-    yaw = (atan2(vForward.y, vForward.x) * 180 / M_PI);
+    yaw = (atan2(vForward.y, vForward.x) * 180.0f / (float)M_PI);
     if (yaw < 0)
     {
       yaw += 360;
     }
     flTemp = sqrt(vForward.x * vForward.x + vForward.y * vForward.y);
-    pitch = (atan2(-vForward.z, flTemp) * 180 / M_PI);
+    pitch = (atan2(-vForward.z, flTemp) * 180.0f / (float)M_PI);
 
     if (pitch < 0)
     {

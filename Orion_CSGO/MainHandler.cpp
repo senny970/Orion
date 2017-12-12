@@ -90,6 +90,7 @@ void M::RegCheats()
   REG_CHEAT(C_Visuals);
   REG_CHEAT(C_Aimbot);
   REG_CHEAT(C_Triggerbot);
+  REG_CHEAT(C_RCS);
   
 }
 

@@ -1,5 +1,7 @@
 # Orion CSGO Instant hooks!
 
+v0.9 RCS added! fix triggerbot
+
 v0.8 Triggerbot added!
 
 v0.7 Radar, NoFlash, DynamicCrosshair + Templates(Aimbot, Triggerbot)

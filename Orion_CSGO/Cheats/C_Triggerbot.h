@@ -12,6 +12,10 @@ public:
   virtual void OnDraw();
 
 private:
-  float m_flWallShootChance;
+  bool m_bShotEnemies;
+  bool m_bShotFriendlies;
+  bool m_bTriggerHead;
+  bool m_bTriggerBody;
+  bool m_bTriggerLegsArms;
 };
 

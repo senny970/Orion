@@ -258,6 +258,9 @@
     <ClInclude Include="Engine\Utils.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Cheats\C_RCS.h">
+      <Filter>Cheats\Custom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImGui\imgui.cpp">
@@ -337,6 +340,9 @@
     </ClCompile>
     <ClCompile Include="Engine\Utils.cpp">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_RCS.cpp">
+      <Filter>Cheats\Custom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

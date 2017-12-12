@@ -134,6 +134,7 @@
     <ClInclude Include="Cheats\C_FakeLag.h" />
     <ClInclude Include="Cheats\C_Glowhack.h" />
     <ClInclude Include="Cheats\C_Radar.h" />
+    <ClInclude Include="Cheats\C_RCS.h" />
     <ClInclude Include="Cheats\C_Triggerbot.h" />
     <ClInclude Include="Cheats\C_Visuals.h" />
     <ClInclude Include="CSGO_SDK\BaseTypes.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="Cheats\C_FakeLag.cpp" />
     <ClCompile Include="Cheats\C_Glowhack.cpp" />
     <ClCompile Include="Cheats\C_Radar.cpp" />
+    <ClCompile Include="Cheats\C_RCS.cpp" />
     <ClCompile Include="Cheats\C_Triggerbot.cpp" />
     <ClCompile Include="Cheats\C_Visuals.cpp" />
     <ClCompile Include="CSGO_SDK\CRC.cpp" />
