@@ -29,7 +29,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -133,6 +133,7 @@
     <ClInclude Include="Cheats\C_CheatMgr.h" />
     <ClInclude Include="Cheats\C_FakeLag.h" />
     <ClInclude Include="Cheats\C_Glowhack.h" />
+    <ClInclude Include="Cheats\C_Chams.h" />
     <ClInclude Include="Cheats\C_Radar.h" />
     <ClInclude Include="Cheats\C_RCS.h" />
     <ClInclude Include="Cheats\C_Triggerbot.h" />
@@ -171,11 +172,10 @@
     <ClInclude Include="CSGO_SDK\IVModelInfoClient.h" />
     <ClInclude Include="CSGO_SDK\IVModelRender.h" />
     <ClInclude Include="CSGO_SDK\IVRenderView.h" />
+    <ClInclude Include="CSGO_SDK\KeyValues.h" />
     <ClInclude Include="CSGO_SDK\PlayerInfo.h" />
-    <ClInclude Include="CSGO_SDK\QAngle.h" />
     <ClInclude Include="CSGO_SDK\Recv.h" />
     <ClInclude Include="CSGO_SDK\RecvCommon.h" />
-    <ClInclude Include="CSGO_SDK\SDK.h" />
     <ClInclude Include="CSGO_SDK\TextureGroupNames.h" />
     <ClInclude Include="CSGO_SDK\Vector.h" />
     <ClInclude Include="CSGO_SDK\Vector2D.h" />
@@ -213,6 +213,7 @@
     <ClCompile Include="Cheats\C_CheatMgr.cpp" />
     <ClCompile Include="Cheats\C_FakeLag.cpp" />
     <ClCompile Include="Cheats\C_Glowhack.cpp" />
+    <ClCompile Include="Cheats\C_Chams.cpp" />
     <ClCompile Include="Cheats\C_Radar.cpp" />
     <ClCompile Include="Cheats\C_RCS.cpp" />
     <ClCompile Include="Cheats\C_Triggerbot.cpp" />

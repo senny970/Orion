@@ -15,9 +15,12 @@ void C_Radar::OnCreateMove(SDK::CUserCmd* pCmd)
 {
   if (m_bEnabled)
   {
-    for each (Engine::CBaseEntity* pEnemy in m_vEnemies)
+    if (G::pEngine)
     {
-      *pEnemy->IsSpotted() = true;
+      for each (Engine::CBaseEntity* pEnemy in m_vEnemies)
+      {
+        *pEnemy->IsSpotted() = true;
+      }
     }
   }
 }
@@ -34,6 +37,18 @@ void C_Radar::OnDraw()
 
 bool C_Radar::UndoChanges()
 {
+  return true;
+}
+
+bool C_Radar::UndoDraws()
+{
+  if (G::pEngine)
+  {
+    for each (Engine::CBaseEntity* pEnemy in m_vEnemies)
+    {
+      *pEnemy->IsSpotted() = false;
+    }
+  }
   return true;
 }
 

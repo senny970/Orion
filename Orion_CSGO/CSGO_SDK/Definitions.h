@@ -17,6 +17,28 @@ template< typename Function > Function GetVMethod( PVOID Base , DWORD Index )
 	return (Function)(((unsigned int**)Base)[0][Index]);
 }
 
+struct vrect_t
+{
+  int				x, y, width, height;
+  vrect_t			*pnext;
+};
+
+struct Rect_t
+{
+  int x, y;
+  int width, height;
+};
+
+struct colorVec
+{
+  unsigned r, g, b, a;
+};
+
+struct color24
+{
+  unsigned char r, g, b;
+};
+
 typedef struct con_nprint_s
 {
 	int		index;			// Row #

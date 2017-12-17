@@ -16,6 +16,13 @@ namespace H
   void __stdcall IBaseClientDll_CreateMove(
     int sequence_number, float input_sample_frametime, bool active);
 
+  void __stdcall IBaseClientDll_FrameStageNotify(SDK::ClientFrameStage_t stage);
+
+  void __fastcall IVModelRender_DrawModelExecute(SDK::IVModelRender* thisptr,
+    void* pEdx, SDK::IMatRenderContext* context,
+    const SDK::DrawModelState_t &state, const SDK::ModelRenderInfo_t& info,
+    SDK::matrix3x4_t* pCustomBoneToWorld = NULL);
+
   void CHLClient_CreateMove();
 }
 

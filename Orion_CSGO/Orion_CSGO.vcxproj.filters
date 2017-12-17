@@ -135,16 +135,10 @@
     <ClInclude Include="CSGO_SDK\PlayerInfo.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="CSGO_SDK\QAngle.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
     <ClInclude Include="CSGO_SDK\Recv.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="CSGO_SDK\RecvCommon.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="CSGO_SDK\SDK.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="CSGO_SDK\TextureGroupNames.h">
@@ -163,9 +157,6 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="CSGO_SDK\Vplane.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="CSGO_SDK\BaseTypes.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="CSGO_SDK\ButtonCode.h">
@@ -261,6 +252,15 @@
     <ClInclude Include="Cheats\C_RCS.h">
       <Filter>Cheats\Custom</Filter>
     </ClInclude>
+    <ClInclude Include="Cheats\C_Chams.h">
+      <Filter>Cheats\Custom</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\BaseTypes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGO_SDK\KeyValues.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImGui\imgui.cpp">
@@ -342,6 +342,9 @@
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="Cheats\C_RCS.cpp">
+      <Filter>Cheats\Custom</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\C_Chams.cpp">
       <Filter>Cheats\Custom</Filter>
     </ClCompile>
   </ItemGroup>

@@ -33,7 +33,7 @@ namespace SDK
 
 		// Get angles and origin.
 		virtual const Vector&	GetCollisionOrigin() const = 0;
-		virtual const QAngle&	GetCollisionAngles() const = 0;
+		virtual const Vector&	GetCollisionAngles() const = 0;
 		virtual const matrix3x4_t&	CollisionToWorldTransform() const = 0;
 
 		// Return a SOLID_ define.

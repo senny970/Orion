@@ -5,14 +5,14 @@ namespace Engine
 
 	NetVarManager g_NetVar;
 
-	bool NetVarManager::Init(SDK::ClientClass* pClientClass )
+	bool NetVarManager::Init( SDK::ClientClass* pClientClass )
 	{
 		if ( !pClientClass )
 			return false;
 
 		while ( pClientClass )
 		{
-      SDK::RecvTable* recvTable = pClientClass->m_pRecvTable;
+			SDK::RecvTable* recvTable = pClientClass->m_pRecvTable;
 			m_tables.push_back( recvTable );
 			pClientClass = pClientClass->m_pNext;
 		}
@@ -32,7 +32,7 @@ namespace Engine
 
 	bool NetVarManager::HookProp( const char* tableName , const char* propName , SDK::RecvVarProxyFn function )
 	{
-    SDK::RecvProp *recvProp = 0;
+		SDK::RecvProp *recvProp = 0;
 
 		dwGetProp( tableName , propName , &recvProp );
 
@@ -48,7 +48,7 @@ namespace Engine
 
 	DWORD NetVarManager::dwGetProp( const char* tableName , const char* propName , SDK::RecvProp** prop )
 	{
-    SDK::RecvTable *recvTable = GetTable( tableName );
+		SDK::RecvTable *recvTable = GetTable( tableName );
 
 		if ( !recvTable )
 			return 0;
@@ -61,15 +61,15 @@ namespace Engine
 		return offset;
 	}
 
-	DWORD NetVarManager::dwGetProp(SDK::RecvTable* recvTable , const char* propName , SDK::RecvProp** prop )
+	DWORD NetVarManager::dwGetProp( SDK::RecvTable* recvTable , const char* propName , SDK::RecvProp** prop )
 	{
 		int extraOffset = 0;
 
 		for ( int i = 0; i < recvTable->m_nProps; ++i )
 		{
-      SDK::RecvProp *recvProp = &recvTable->m_pProps[i];
+			SDK::RecvProp *recvProp = &recvTable->m_pProps[i];
 
-      SDK::RecvTable *child = recvProp->m_pDataTable;
+			SDK::RecvTable *child = recvProp->m_pDataTable;
 
 			if ( child && ( child->m_nProps > 0 ) )
 			{
@@ -93,12 +93,12 @@ namespace Engine
 		return extraOffset;
 	}
 
-  SDK::RecvTable* NetVarManager::GetTable( const char* tableName )
+	SDK::RecvTable* NetVarManager::GetTable( const char* tableName )
 	{
 		if ( m_tables.empty() )
 			return 0;
 
-		for each (SDK::RecvTable *table in m_tables )
+		for each ( SDK::RecvTable *table in m_tables )
 		{
 			if ( !table )
 			{

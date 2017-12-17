@@ -38,9 +38,9 @@ namespace SDK
 	struct WorldListLeafData_t
 	{
 		LeafIndex_t	leafIndex;	// 16 bits
-		int16	waterData;
-		uint16 	firstTranslucentSurface;	// engine-internal list index
-		uint16	translucentSurfaceCount;	// count of translucent surfaces+disps
+		__int16	waterData;
+		unsigned __int16 	firstTranslucentSurface;	// engine-internal list index
+		unsigned __int16	translucentSurfaceCount;	// count of translucent surfaces+disps
 	};
 
 	struct WorldListInfo_t
@@ -127,7 +127,7 @@ namespace SDK
 		// Draw normal brush model.
 		// If pMaterialOverride is non-null, then all the faces of the bmodel will
 		// set this material rather than their regular material.
-		virtual void			DrawBrushModel( IClientEntity *baseentity , model_t *model , const Vector& origin , const QAngle& angles , bool sort ) = 0;
+		virtual void			DrawBrushModel( IClientEntity *baseentity , model_t *model , const Vector& origin , const Vector& angles , bool sort ) = 0;
 
 		// Draw brush model that has no origin/angles change ( uses identity transform )
 		// FIXME, Material proxy IClientEntity *baseentity is unused right now, use DrawBrushModel for brushes with
@@ -223,7 +223,7 @@ namespace SDK
 		virtual void			Push2DView( const CViewSetup &view , int nFlags , ITexture* pRenderTarget , Frustum frustumPlanes ) = 0;
 		virtual void			PopView( Frustum frustumPlanes ) = 0;
 		// Sets the main view
-		virtual void			SetMainView( const Vector &vecOrigin , const QAngle &angles ) = 0;
+		virtual void			SetMainView( const Vector &vecOrigin , const Vector &angles ) = 0;
 
 		enum
 		{
@@ -235,7 +235,7 @@ namespace SDK
 
 		//replaces the current view frustum with a rhyming replacement of your choice
 		virtual void			OverrideViewFrustum( Frustum custom ) = 0;
-		virtual void			DrawBrushModelShadowDepth( IClientEntity *baseentity , model_t *model , const Vector& origin , const QAngle& angles , bool bSort ) = 0;
+		virtual void			DrawBrushModelShadowDepth( IClientEntity *baseentity , model_t *model , const Vector& origin , const Vector& angles , bool bSort ) = 0;
 		virtual void			UpdateBrushModelLightmap( model_t *model , IClientRenderable *pRenderable ) = 0;
 		virtual void			BeginUpdateLightmaps( void ) = 0;
 		virtual void			EndUpdateLightmaps( void ) = 0;

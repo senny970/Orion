@@ -6,7 +6,7 @@ namespace SDK
 
 	typedef float vec_t;
 	// 3D Vector
-	class Vector {
+	typedef class Vector {
 	public:
 		// Members
 		vec_t x , y , z;
@@ -186,7 +186,7 @@ namespace SDK
 		// Returns a vector with the min or max in X, Y, and Z.
 		Vector	Min( const Vector &vOther ) const;
 		Vector	Max( const Vector &vOther ) const;
-	};
+	} QAngle;
 
 	class TableVector
 	{

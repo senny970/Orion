@@ -4,8 +4,6 @@ namespace Engine
 {
 	namespace Offset
 	{
-    DWORD GlowManager = 0;
-
 		namespace Entity
 		{
 			DWORD m_hMyWeapons = 0;
@@ -61,15 +59,10 @@ namespace Engine
 			DWORD m_bSpotted = 0;
 
 			DWORD m_zoomLevel = 0;
-
 		}
 
 		bool Initialize()
 		{
-      GlowManager = *U::FindPattern<DWORD*>(XS("client.dll"),
-        XS("0F 11 05 ?? ?? ?? ?? 83 C8 01 C7 05 ?? ?? ?? ?? 00 00 00 00"),
-        XS("GlowManager"), 3);
-
 			Entity::m_hMyWeapons = g_NetVar.GetOffset( BASE_PLAYER , BASE_PLAYER_WEAPONS ) / 2;
 			Entity::m_hMyWearables = g_NetVar.GetOffset( BASE_PLAYER , BASE_PLAYER_WERABLES );
 			Entity::m_hViewModel = g_NetVar.GetOffset( BASE_PLAYER , BASE_PLAYER_VIEWMODEL );
@@ -122,7 +115,6 @@ namespace Engine
 			Entity::m_bSpotted = g_NetVar.GetOffset( BASE_ENTITY , BASE_ENTITY_SPOTTED );
 
 			Entity::m_zoomLevel = g_NetVar.GetOffset( BASE_WEAPON_AWP , BASE_WEAPON_AWP_ZOOMLEVEL );
-
 
 			return true;
 		}

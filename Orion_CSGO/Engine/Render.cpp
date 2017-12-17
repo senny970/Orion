@@ -15,7 +15,7 @@ namespace Engine
 
 		if ( !CreateObject() )
 		{
-			MessageBoxA( 0 , XS("Fail to create d3d9 objects"), XS("Error"), MB_OK | MB_ICONERROR );
+			MessageBoxA( 0 , "Fail to create d3d9 objects" , "Error" , MB_OK | MB_ICONERROR );
 			TerminateProcess( GetCurrentProcess() , 0 );
 		}
 	}
@@ -38,9 +38,7 @@ namespace Engine
 	{
 		if ( !m_pFont )
 		{
-			HRESULT hFontRes = D3DXCreateFontA(m_pDevice , 12 , 0 , FW_NORMAL , 0 ,
-        FALSE , RUSSIAN_CHARSET , OUT_DEFAULT_PRECIS , ANTIALIASED_QUALITY ,
-        DEFAULT_PITCH | FW_DONTCARE , XS("Tahoma") , &m_pFont );
+			HRESULT hFontRes = D3DXCreateFontA( m_pDevice , 12 , 0 , FW_NORMAL , 0 , FALSE , RUSSIAN_CHARSET , OUT_DEFAULT_PRECIS , ANTIALIASED_QUALITY , DEFAULT_PITCH | FW_DONTCARE , "Tahoma" , &m_pFont );
 
 			if ( hFontRes != D3D_OK )
 				return false;
@@ -68,7 +66,7 @@ namespace Engine
 
 		if ( !CreateObject() )
 		{
-			MessageBoxA( 0 , XS("Fail to reset d3d9 objects") , XS("Error") , MB_OK | MB_ICONERROR );
+			MessageBoxA( 0 , "Fail to reset d3d9 objects" , "Error" , MB_OK | MB_ICONERROR );
 			TerminateProcess( GetCurrentProcess() , 0 );
 		}
 	}
@@ -267,25 +265,23 @@ namespace Engine
 		vsprintf_s( Buffer , format , va_alist );
 		va_end( va_alist );
 
-    
-
-		wstring text = U::S8_WS(Buffer);
+		BSTR text = (BSTR)U::S8_WS(Buffer).c_str();
 
 		DWORD dxTextColor = D3DCOLOR_XRGB( color.r() , color.g() , color.b() );
 
 		auto drawShadow = [&]( RECT rect )
 		{
 			rect.left++;
-			m_pFont->DrawTextW( NULL , text.c_str() , -1 , &rect , DT_TOP | DT_LEFT | DT_NOCLIP , 0xFF000000 );
+			m_pFont->DrawTextW( NULL , text , -1 , &rect , DT_TOP | DT_LEFT | DT_NOCLIP , 0xFF000000 );
 			rect.top++;
-			m_pFont->DrawTextW( NULL , text.c_str(), -1 , &rect , DT_TOP | DT_LEFT | DT_NOCLIP , 0xFF000000 );
+			m_pFont->DrawTextW( NULL , text , -1 , &rect , DT_TOP | DT_LEFT | DT_NOCLIP , 0xFF000000 );
 		};
 
 		if ( center )
 		{
 			RECT rec = { 0,0,0,0 };
 
-			m_pFont->DrawTextW( NULL , text.c_str(), -1 , &rec , DT_CALCRECT | DT_NOCLIP , dxTextColor );
+			m_pFont->DrawTextW( NULL , text , -1 , &rec , DT_CALCRECT | DT_NOCLIP , dxTextColor );
 
 			rec =
 			{
@@ -298,7 +294,7 @@ namespace Engine
 			if ( shadow )
 				drawShadow( rec );
 
-			m_pFont->DrawTextW( NULL , text.c_str(), -1 , &rec , DT_TOP | DT_LEFT | DT_NOCLIP , dxTextColor );
+			m_pFont->DrawTextW( NULL , text , -1 , &rec , DT_TOP | DT_LEFT | DT_NOCLIP , dxTextColor );
 		}
 		else
 		{
@@ -313,13 +309,13 @@ namespace Engine
 			if ( shadow )
 				drawShadow( rec );
 
-			m_pFont->DrawTextW( NULL , text.c_str(), -1 , &rec , DT_TOP | DT_LEFT | DT_NOCLIP , dxTextColor );
+			m_pFont->DrawTextW( NULL , text , -1 , &rec , DT_TOP | DT_LEFT | DT_NOCLIP , dxTextColor );
 		}
 
 		if ( m_pStateBlockText )
 			m_pStateBlockText->Apply();
 
-		SysFreeString(const_cast<BSTR>(text.c_str()));
+		SysFreeString( text );
 	}
 
 	void CRender::SetVertexState()

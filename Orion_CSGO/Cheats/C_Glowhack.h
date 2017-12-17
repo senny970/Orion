@@ -8,6 +8,7 @@ public:
 
   virtual void OnCreateMove(SDK::CUserCmd* pCmd);
   virtual bool UndoChanges();
+  virtual bool UndoDraws();
   virtual void OnDrawMenu();
   virtual void OnDraw();
 
@@ -17,5 +18,6 @@ private:
   bool m_bDrawFriendlies;
   bool m_bDrawGranades;
   bool m_bDrawWeapons;
+  bool m_bUndone;
 };
 

@@ -239,10 +239,10 @@ namespace SDK
 
 		// Available on client only!!!
 		virtual void					GetModelMaterialColorAndLighting( const model_t *model , Vector const& origin ,
-																		  QAngle const& angles , trace_t* pTrace ,
+																		  Vector const& angles , trace_t* pTrace ,
 																		  Vector& lighting , Vector& matColor ) = 0;
 		virtual void					GetIlluminationPoint( const model_t *model , IClientRenderable *pRenderable , Vector const& origin ,
-															  QAngle const& angles , Vector* pLightingCenter ) = 0;
+															  Vector const& angles , Vector* pLightingCenter ) = 0;
 
 		virtual int						GetModelContents( int modelIndex ) const = 0;
 		virtual studiohdr_t				*GetStudioModel( const model_t *mod ) = 0;

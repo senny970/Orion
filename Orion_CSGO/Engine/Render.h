@@ -18,8 +18,8 @@ namespace Engine
 		CRender( IDirect3DDevice9* pDevice );
 		~CRender();
 
-    void OnResetDevice();
 		void OnLostDevice();
+		void OnResetDevice();
 
 		void BeginRender();
 		void EndRender();
@@ -35,8 +35,8 @@ namespace Engine
 
 		void DrawWindow( int x , int y , int w , int h , SDK::Color Border , SDK::Color Background );
 
-    void DrawVerBar(int x, int y, int w, int h, int val, SDK::Color color1, SDK::Color color2);
 		void DrawHorBar( int x , int y , int w , int h , int val , SDK::Color color1 , SDK::Color color2 );
+		void DrawVerBar( int x , int y , int w , int h , int val , SDK::Color color1 , SDK::Color color2 );
 		
 		void Text( int x , int y , bool center , bool shadow , SDK::Color color , const char* format , ... );
 
@@ -54,7 +54,7 @@ namespace Engine
 		IDirect3DStateBlock9*	m_pStateBlockDraw;
 		IDirect3DStateBlock9*	m_pStateBlockText;
 
-		DWORD					dwOld_D3DRS_COLORWRITEENABLE;
+		DWORD dwOld_D3DRS_COLORWRITEENABLE;
 
 	};
 }

@@ -208,7 +208,7 @@ namespace SDK
 		bool		IsIdentity() const;
 
 		// Setup a matrix for origin and angles.
-		void		SetupMatrixOrgAngles( const Vector &origin , const QAngle &vAngles );
+		void		SetupMatrixOrgAngles( const Vector &origin , const Vector &vAngles );
 
 		// General inverse. This may fail so check the return!
 		bool		InverseGeneral( VMatrix &vInverse ) const;

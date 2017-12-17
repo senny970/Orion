@@ -149,7 +149,7 @@ namespace U
       (__TIME__[1] - '0') * 3600 +
       (__TIME__[0] - '0') * 36000;
 
-    template <size_t size, int counter>
+    template <size_t size>
     class XSClass
     {
     public:
@@ -183,4 +183,52 @@ namespace U
   }
 }
 
-#define XS(str) (U::XorString::XSClass<sizeof(str) - 1, __COUNTER__> (str, std::make_index_sequence<sizeof(str) - 1>()).DecryptAll())
+#define XS(str) (U::XorString::XSClass<sizeof(str) - 1> (str, std::make_index_sequence<sizeof(str) - 1>()).DecryptAll())
+
+#ifndef CONCAT
+#ifndef CONCAT_IMPLEMENT
+#define CONCAT_IMPLEMENT(x, y) x##y
+#endif // CONCAT_IMPLEMENT
+#define CONCAT(x, y) CONCAT_IMPLEMENT(x, y)
+#endif // CONCAT
+
+#ifndef GEN_CT_VALUE
+#define GEN_CT_VALUE(x) \
+constexpr auto CONCAT(COMPILETIME_, x) = \
+(__TIME__[7] - '0') * (x + 2) + \
+(__TIME__[6] - '0') * 10 * (x + 2) + \
+(__TIME__[4] - '0') * 60 * (x + 2) + \
+(__TIME__[3] - '0') * 600 * (x + 2) + \
+(__TIME__[1] - '0') * 3600 * (x + 2) + \
+(__TIME__[0] - '0') * 36000 * (x + 2); 
+#endif // GEN_CT_VALUE
+
+#ifndef GETCTVAR
+#define GETCTVAR(name, x) \
+CONCAT(CONCAT(CONCAT(name, CT_VALUE), _), x)
+#endif // GETCTVAR
+
+#ifndef JUNKGEN
+#define JUNKGEN(x) \
+GEN_CT_VALUE(x) \
+static float GETCTVAR(flJunkVar_, x) = (float)(CONCAT(COMPILETIME_, x) + x + sizeof(__FILE__) + __LINE__); \
+static int GETCTVAR(iJunkVar_, x) = (int)(CONCAT(COMPILETIME_, x) + x + sizeof(__FILE__) + __LINE__); \
+static char GETCTVAR(chJunkVar_, x) = (char)(CONCAT(COMPILETIME_, x) + x + sizeof(__FILE__) + __LINE__); \
+static string GETCTVAR(sJunkVar_, x) = to_string((CONCAT(COMPILETIME_, x) + x + sizeof(__FILE__) + __LINE__)) + XS(__FILE__); \
+static void* GETCTVAR(pJunkVar_, x) = (void*)(CONCAT(COMPILETIME_, x) + x + sizeof(__FILE__) + __LINE__); \
+static bool GETCTVAR(bJunkVar_, x) = (bool)(CONCAT(COMPILETIME_, x) + x + sizeof(__FILE__) + __LINE__);
+#endif // JUNKGEN
+
+#ifndef RANDCTVALUE
+#define RANDCTVALUE(x) (sizeof(__FILE__) + __LINE__ + x + __COUNTER__ + time(NULL))
+#endif // RANDCTVALUE
+
+#ifndef JUNKCODE
+#define JUNKCODE(x) \
+GETCTVAR(flJunkVar_, x) = (float)RANDCTVALUE(x); \
+GETCTVAR(iJunkVar_, x) = (int)RANDCTVALUE(x); \
+GETCTVAR(chJunkVar_, x) = (char)RANDCTVALUE(x); \
+GETCTVAR(sJunkVar_, x) = to_string(RANDCTVALUE(x)) + XS(__FILE__); \
+GETCTVAR(pJunkVar_, x) = (void*)RANDCTVALUE(x); \
+GETCTVAR(bJunkVar_, x) = (bool)RANDCTVALUE(x);
+#endif // JUNKCODE

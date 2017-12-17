@@ -36,11 +36,11 @@ namespace SDK
 		virtual void			View_Render( vrect_t *rect ) = 0;
 		virtual void			RenderView( const CViewSetup &view , int nClearFlags , int whatToDraw ) = 0;
 		virtual void			View_Fade( ScreenFade_t *pSF ) = 0;
-		virtual void			SetCrosshairAngle( const QAngle& angle ) = 0;
+		virtual void			SetCrosshairAngle( const Vector& angle ) = 0;
 		virtual void			InitSprite( CEngineSprite *pSprite , const char *loadname ) = 0;
 		virtual void			ShutdownSprite( CEngineSprite *pSprite ) = 0;
 		virtual int				GetSpriteSize( void ) const = 0;
-		virtual void			VoiceStatus( int entindex , int iSsSlot , qboolean bTalking ) = 0;
+		virtual void			VoiceStatus( int entindex , int iSsSlot , int bTalking ) = 0;
 		virtual int				PlayerAudible( int audible ) = 0;
 		virtual void			InstallStringTableCallback( char const *tableName ) = 0;
 		virtual void			FrameStageNotify( ClientFrameStage_t curStage ) = 0;

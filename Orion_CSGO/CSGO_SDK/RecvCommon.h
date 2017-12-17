@@ -103,7 +103,7 @@ public:
 #else
 		float	m_Vector[3];
 #endif
-		int64	m_Int64;
+		__int64	m_Int64;
 	};
 	SendPropType	m_Type;
 };

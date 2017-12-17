@@ -36,7 +36,7 @@ namespace SDK
 	public:
 		virtual IClientUnknown*            GetIClientUnknown() = 0;
 		virtual Vector const&              GetRenderOrigin( void ) = 0;
-		virtual QAngle const&              GetRenderAngles( void ) = 0;
+		virtual Vector const&              GetRenderAngles( void ) = 0;
 		virtual bool                       ShouldDraw( void ) = 0;
 		virtual int                        GetRenderFlags( void ) = 0;
 		virtual void                       Unused( void ) const {}
@@ -67,7 +67,7 @@ namespace SDK
 		virtual ModelInstanceHandle_t      GetModelInstance() = 0;
 		virtual const matrix3x4_t&         RenderableToWorldTransform() = 0;
 		virtual int                        LookupAttachment( const char *pAttachmentName ) = 0;
-		virtual bool                       GetAttachment( int number , Vector &origin , QAngle &angles ) = 0;
+		virtual bool                       GetAttachment( int number , Vector &origin , Vector &angles ) = 0;
 		virtual bool                       GetAttachment( int number , matrix3x4_t &matrix ) = 0;
 		virtual float*                     GetRenderClipPlane( void ) = 0;
 		virtual int                        GetSkin() = 0;

@@ -11,48 +11,47 @@ namespace Engine
 
 		char*	GetPlayerName();
 
-    bool	HasDefuser();
-    bool	HasHelmet();
-
-    int		GetFovStart();
-    int		GetArmor();
-    int		GetIsScoped();
-    int		GetTickBase();
-    int		GetTeam();
-    int		GetFlags();
-    int		GetHealth();
-    int		GetShotsFired();
-
-    bool	IsDead();
+		bool	IsPlayer();
 		bool	IsAlive();
-    bool	IsPlayer();
-    bool*	IsSpotted();
+		bool	IsDead();
 		bool	IsVisible( CBaseEntity* pLocalEntity );
+
+		bool	HasHelmet();
+		bool	HasDefuser();
+		bool*	IsSpotted();
 
     float* GetFlashDuration();
 
-		SDK::ObserverMode_t GetObserverMode();
+		int		GetFovStart();
+		int		GetFlags();
+		int		GetHealth();
+		int		GetArmor();
+		int		GetTeam();
+		int		GetShotsFired();
+		int		GetIsScoped();
+		int		GetTickBase();
+    SDK::ObserverMode_t GetObserverMode();
 		PVOID GetObserverTarget();
 		
-		PVOID GetActiveWeapon();
+		PVOID			GetActiveWeapon();
 		CBaseWeapon*	GetBaseWeapon();
-		UINT* GetWeapons();
-		UINT* GetWearables();
+		UINT*			GetWeapons();
+		UINT*			GetWearables();
 		CBaseViewModel* GetViewModel();
 
-    SDK::Vector	GetAimPunchAngle();
-    SDK::Vector	GetViewPunchAngle();
+		SDK::Vector*	GetAimPunchAngle();
+    SDK::Vector*	GetViewPunchAngle();
 				
     SDK::Vector	GetVelocity();
     SDK::Vector	GetViewOffset();
     SDK::Vector	GetEyePosition();
 
-    SDK::QAngle	GetEyeAngles();
+    SDK::QAngle GetEyeAngles();
 
     SDK::Vector	GetBonePosition( int nBone );
     SDK::Vector	GetHitboxPosition( int nHitbox );
 
-    SDK::studiohdr_t* GetStudioModel();
+		SDK::studiohdr_t* GetStudioModel();
 
     SDK::mstudiobone_t* GetBone( int nBone );
     SDK::mstudiobbox_t* GetHitBox( int nHitbox );
@@ -65,12 +64,12 @@ namespace Engine
 	{
 	public:
 
-    void	SetModelIndex(int nModelIndex);
 		int		GetModelIndex();
+		void	SetModelIndex( int nModelIndex );
 		void	SetWeaponModel( const char* Filename , SDK::IClientEntity* Weapon );
 
-    DWORD	GetWeapon();
 		DWORD	GetOwner();
+		DWORD	GetWeapon();
 
 	};
 
@@ -218,7 +217,7 @@ namespace Engine
 		CTEPlantBomb = 181 ,
 		CTEFireBullets = 168 ,
 		CTERadioIcon = 185 ,
-		CPlantedC4 = 107 ,
+		CPlantedC4 = 108 ,
 		CCSTeam = 38 ,
 		CCSPlayerResource = 36 ,
 		CCSPlayer = 35 ,

@@ -57,5 +57,8 @@ bool C_FakeLag::UndoChanges()
   return G::bSendPacket;
 }
 
-
+bool C_FakeLag::UndoDraws()
+{
+  return true;
+}
 

@@ -1,5 +1,7 @@
 # Orion CSGO Instant hooks!
 
+v1.0 Chams added! Glow fixed, triggerbot fix, junk code generator
+
 v0.9 RCS added! fix triggerbot
 
 v0.8 Triggerbot added!

@@ -1,30 +1,30 @@
 #pragma once
 
-#define TEXTURE_GROUP_LIGHTMAP						"Lightmaps"
-#define TEXTURE_GROUP_WORLD							"World textures"
-#define TEXTURE_GROUP_MODEL							"Model textures"
-#define TEXTURE_GROUP_VGUI							"VGUI textures"
-#define TEXTURE_GROUP_PARTICLE						"Particle textures"
-#define TEXTURE_GROUP_DECAL							"Decal textures"
-#define TEXTURE_GROUP_SKYBOX						"SkyBox textures"
-#define TEXTURE_GROUP_CLIENT_EFFECTS				"ClientEffect textures"
-#define TEXTURE_GROUP_OTHER							"Other textures"
-#define TEXTURE_GROUP_PRECACHED						"Precached"				// TODO: assign texture groups to the precached materials
-#define TEXTURE_GROUP_CUBE_MAP						"CubeMap textures"
-#define TEXTURE_GROUP_RENDER_TARGET					"RenderTargets"
-#define TEXTURE_GROUP_UNACCOUNTED					"Unaccounted textures"	// Textures that weren't assigned a texture group.
-#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER			"Static Vertex"
-#define TEXTURE_GROUP_STATIC_INDEX_BUFFER			"Static Indices"
-#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_DISP		"Displacement Verts"
-#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_COLOR	"Lighting Verts"
-#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_WORLD	"World Verts"
-#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_MODELS	"Model Verts"
-#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_OTHER	"Other Verts"
-#define TEXTURE_GROUP_DYNAMIC_INDEX_BUFFER			"Dynamic Indices"
-#define TEXTURE_GROUP_DYNAMIC_VERTEX_BUFFER			"Dynamic Verts"
-#define TEXTURE_GROUP_DEPTH_BUFFER					"DepthBuffer"
-#define TEXTURE_GROUP_VIEW_MODEL					"ViewModel"
-#define TEXTURE_GROUP_PIXEL_SHADERS					"Pixel Shaders"
-#define TEXTURE_GROUP_VERTEX_SHADERS				"Vertex Shaders"
-#define TEXTURE_GROUP_RENDER_TARGET_SURFACE			"RenderTarget Surfaces"
-#define TEXTURE_GROUP_MORPH_TARGETS					"Morph Targets"
+#define TEXTURE_GROUP_LIGHTMAP						        XS("Lightmaps")
+#define TEXTURE_GROUP_WORLD							          XS("World textures")
+#define TEXTURE_GROUP_MODEL							          XS("Model textures")
+#define TEXTURE_GROUP_VGUI							          XS("VGUI textures")
+#define TEXTURE_GROUP_PARTICLE						        XS("Particle textures")
+#define TEXTURE_GROUP_DECAL							          XS("Decal textures")
+#define TEXTURE_GROUP_SKYBOX						          XS("SkyBox textures")
+#define TEXTURE_GROUP_CLIENT_EFFECTS				      XS("ClientEffect textures")
+#define TEXTURE_GROUP_OTHER							          XS("Other textures")
+#define TEXTURE_GROUP_PRECACHED						        XS("Precached")				// TODO: assign texture groups to the precached materials
+#define TEXTURE_GROUP_CUBE_MAP						        XS("CubeMap textures")
+#define TEXTURE_GROUP_RENDER_TARGET					      XS("RenderTargets")
+#define TEXTURE_GROUP_UNACCOUNTED					        XS("Unaccounted textures")	// Textures that weren't assigned a texture group.
+#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER			  XS("Static Vertex")
+#define TEXTURE_GROUP_STATIC_INDEX_BUFFER			    XS("Static Indices")
+#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_DISP		XS("Displacement Verts")
+#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_COLOR	XS("Lighting Verts")
+#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_WORLD	XS("World Verts")
+#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_MODELS	XS("Model Verts")
+#define TEXTURE_GROUP_STATIC_VERTEX_BUFFER_OTHER	XS("Other Verts")
+#define TEXTURE_GROUP_DYNAMIC_INDEX_BUFFER			  XS("Dynamic Indices")
+#define TEXTURE_GROUP_DYNAMIC_VERTEX_BUFFER		  	XS("Dynamic Verts")
+#define TEXTURE_GROUP_DEPTH_BUFFER					      XS("DepthBuffer")
+#define TEXTURE_GROUP_VIEW_MODEL					        XS("ViewModel")
+#define TEXTURE_GROUP_PIXEL_SHADERS					      XS("Pixel Shaders")
+#define TEXTURE_GROUP_VERTEX_SHADERS				      XS("Vertex Shaders")
+#define TEXTURE_GROUP_RENDER_TARGET_SURFACE			  XS("RenderTarget Surfaces")
+#define TEXTURE_GROUP_MORPH_TARGETS					      XS("Morph Targets")

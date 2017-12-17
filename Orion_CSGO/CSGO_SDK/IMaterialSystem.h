@@ -70,13 +70,7 @@ namespace SDK
 		TESSELLATION_MODE_ACC_PATCHES_REG
 	};
 
-	enum MaterialPropertyTypes_t
-	{
-		MATERIAL_PROPERTY_NEEDS_LIGHTMAP = 0 ,					// bool
-		MATERIAL_PROPERTY_OPACITY ,								// int (enum MaterialPropertyOpacityTypes_t)
-		MATERIAL_PROPERTY_REFLECTIVITY ,							// vec3_t
-		MATERIAL_PROPERTY_NEEDS_BUMPED_LIGHTMAPS				// bool
-	};
+
 
 	// acceptable property values for MATERIAL_PROPERTY_OPACITY
 	enum MaterialPropertyOpacityTypes_t

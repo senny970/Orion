@@ -15,23 +15,26 @@ void C_Bhop::OnCreateMove(SDK::CUserCmd* pCmd)
 {
   if (m_bEnabled)
   {
-    if (pMe && pMe->IsAlive() && pMe->GetTeam() != Engine::TEAM_SPEC)
+    if (G::pEngine)
     {
-      if (!(pMe->GetFlags() & FL_ONGROUND))
+      if (G::pMe && G::pMe->IsAlive() && G::pMe->GetTeam() != Engine::TEAM_SPEC)
       {
-        if (pCmd->buttons & IN_JUMP)
+        if (!(G::pMe->GetFlags() & FL_ONGROUND))
         {
-          pCmd->buttons &= ~IN_JUMP;
-        }
-        if (m_bAutoStrafe)
-        {
-          if (pCmd->mousedx < 0)
+          if (pCmd->buttons & IN_JUMP)
           {
-            pCmd->sidemove = -450.0f;
+            pCmd->buttons &= ~IN_JUMP;
           }
-          else if (pCmd->mousedx > 0)
+          if (m_bAutoStrafe)
           {
-            pCmd->sidemove = 450.0f;
+            if (pCmd->mousedx < 0)
+            {
+              pCmd->sidemove = -450.0f;
+            }
+            else if (pCmd->mousedx > 0)
+            {
+              pCmd->sidemove = 450.0f;
+            }
           }
         }
       }
@@ -58,5 +61,8 @@ bool C_Bhop::UndoChanges()
   return true;
 }
 
-
+bool C_Bhop::UndoDraws()
+{
+  return true;
+}
 

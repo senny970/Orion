@@ -1,20 +1,17 @@
 #include "../OrionIncludes.h"
-
 namespace Engine
 {
-
+//[junk_enable /]
 	int CBaseWeapon::GetWeaponId()
 	{
-		//typedef int( __thiscall* GetWeaponIDFn )( void* );
-    VirtualFn(int)(void*);
-		return GetVMethod<OriginalFn>( this , 458 )( this );
+		typedef int( __thiscall* GetWeaponIDFn )( void* );
+		return GetVMethod<GetWeaponIDFn>( this , 458 )( this );
 	}
 
 	int	CBaseWeapon::GetWeaponType()
 	{
-		//typedef int( __thiscall* GetWeaponTypeFn )( void* );
-    VirtualFn(int)(void*);
-		return GetVMethod<OriginalFn>( this , 453 )( this );
+		typedef int( __thiscall* GetWeaponTypeFn )( void* );
+		return GetVMethod<GetWeaponTypeFn>( this , 453 )( this );
 	}
 
 	int CBaseWeapon::GetWeaponAmmo()
@@ -39,9 +36,8 @@ namespace Engine
 
 	CWeaponInfo* CBaseWeapon::GetWeaponInfo()
 	{
-		//typedef CWeaponInfo*( __thiscall* GetWeaponDataFn )( void* );
-    VirtualFn(CWeaponInfo*)(void*);
-		return GetVMethod< OriginalFn >( this , 446 )( this );
+		typedef CWeaponInfo*( __thiscall* GetWeaponDataFn )( void* );
+		return GetVMethod< GetWeaponDataFn >( this , 446 )( this );
 	}
 
 	CBaseAttributableItem* CBaseWeapon::GeteAttributableItem()
@@ -51,16 +47,14 @@ namespace Engine
 
 	const char*	CBaseWeapon::GetName()
 	{
-		//typedef const char* ( __thiscall* GetNameFn )( void* );
-    VirtualFn(const char*)(void*);
-		return GetVMethod<OriginalFn>( this , 378 )( this );
+		typedef const char* ( __thiscall* GetNameFn )( void* );
+		return GetVMethod<GetNameFn>( this , 378 )( this );
 	}
 
 	const char*	CBaseWeapon::GetPrintName()
 	{
-		//typedef const char* ( __thiscall* GetPrintNameFn )( void* );
-    VirtualFn(const char*)(void*);
-		return GetVMethod<OriginalFn>( this , 379 )( this );
+		typedef const char* ( __thiscall* GetPrintNameFn )( void* );
+		return GetVMethod<GetPrintNameFn>( this , 379 )( this );
 	}
 
 	int* CBaseAttributableItem::GetItemDefinitionIndex()

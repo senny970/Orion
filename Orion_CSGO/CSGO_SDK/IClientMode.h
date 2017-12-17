@@ -49,7 +49,7 @@ namespace SDK
 		// 3D origin of camera
 		Vector		origin;
 		// heading of camera (pitch, yaw, roll)
-		QAngle		angles;
+    Vector		angles;
 		// local Z coordinate of near plane of camera
 		float		zNear;
 		// local Z coordinate of far plane of camera
@@ -73,9 +73,9 @@ namespace SDK
 		MotionBlurMode_t	m_nMotionBlurMode;
 		float		m_flShutterTime;				// In seconds
 		Vector		m_vShutterOpenPosition;			// Start of frame or "shutter open"
-		QAngle		m_shutterOpenAngles;			//
+    Vector		m_shutterOpenAngles;			//
 		Vector		m_vShutterClosePosition;		// End of frame or "shutter close"
-		QAngle		m_shutterCloseAngles;			// 
+    Vector		m_shutterCloseAngles;			// 
 													// Controls for off-center projection (needed for poster rendering)
 		float		m_flOffCenterTop;
 		float		m_flOffCenterBottom;

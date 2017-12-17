@@ -8,14 +8,18 @@ public:
 
   virtual void OnCreateMove(SDK::CUserCmd* pCmd);
   virtual bool UndoChanges();
+  virtual bool UndoDraws();
   virtual void OnDrawMenu();
   virtual void OnDraw();
 
 private:
+  bool m_bAutoTrigger;
   bool m_bShotEnemies;
   bool m_bShotFriendlies;
   bool m_bTriggerHead;
   bool m_bTriggerBody;
   bool m_bTriggerLegsArms;
+
+  int m_iKeyUse;
 };
 

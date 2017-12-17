@@ -10,6 +10,8 @@ using namespace std;
 
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
+#pragma warning(disable : 4100)
+#pragma warning(disable : 4310)
 
 #ifdef _DEBUG
 #pragma comment(lib, "Utils/Lib/Utils_debug.lib")
@@ -42,9 +44,9 @@ using namespace std;
 #include "OrionGlobals\VMTS.h"
 
 // SDK
-#include "CSGO_SDK\BaseTypes.h"
 #include "CSGO_SDK\Const.h"
 #include "CSGO_SDK\Definitions.h"
+#include "CSGO_SDK\BaseTypes.h"
 #include "CSGO_SDK\InputEnums.h"
 
 #include "CSGO_SDK\IHandleEntity.h"
@@ -55,7 +57,6 @@ using namespace std;
 #include "CSGO_SDK\Vplane.h"
 #include "CSGO_SDK\Vector2D.h"
 #include "CSGO_SDK\Vector4D.h"
-#include "CSGO_SDK\QAngle.h"
 #include "CSGO_SDK\VMatrix.h"
 #include "CSGO_SDK\CGlobalVarsBase.h"
 #include "CSGO_SDK\Color.h"
@@ -80,8 +81,9 @@ using namespace std;
 #include "CSGO_SDK\IEngineSound.h"
 #include "CSGO_SDK\IVModelRender.h"
 #include "CSGO_SDK\IVRenderView.h"
-#include "CSGO_SDK\IMaterialSystem.h"
+#include "CSGO_SDK\KeyValues.h"
 #include "CSGO_SDK\IMaterial.h"
+#include "CSGO_SDK\IMaterialSystem.h"
 #include "CSGO_SDK\ISurface.h"
 #include "CSGO_SDK\IGameEvent.h"
 #include "CSGO_SDK\TextureGroupNames.h"
@@ -108,10 +110,11 @@ using namespace std;
 #include "Cheats\C_FakeLag.h"
 #include "Cheats\C_Radar.h"
 #include "Cheats\C_Glowhack.h"
-#include "Cheats\C_Visuals.h"
-#include "Cheats\C_Aimbot.h"
 #include "Cheats\C_Triggerbot.h"
 #include "Cheats\C_RCS.h"
+#include "Cheats\C_Chams.h"
+#include "Cheats\C_Visuals.h"
+//#include "Cheats\C_Aimbot.h"
 
 // HOOKS
 #include "Hooks.h"

@@ -11,9 +11,9 @@ namespace SDK
 	class ITexture;
 	struct ColorMeshInfo_t;
 
-	FORWARD_DECLARE_HANDLE( LightCacheHandle_t );
+	struct LightCacheHandle_t;
 
-	FORWARD_DECLARE_HANDLE( memhandle_t );
+  struct memhandle_t;
 	typedef memhandle_t DataCacheHandle_t;
 
 	struct DrawModelState_t
@@ -37,7 +37,7 @@ namespace SDK
 	struct ModelRenderInfo_t
 	{
 		Vector origin;
-		QAngle angles;
+    Vector angles;
 		IClientRenderable *pRenderable;
 		const model_t *pModel;
 		const matrix3x4_t *pModelToWorld;
@@ -96,7 +96,7 @@ namespace SDK
 	class IVModelRender
 	{
 	public:
-		virtual int	DrawModel( int flags , IClientRenderable *pRenderable , ModelInstanceHandle_t instance , int entity_index , const model_t *model , Vector const& origin , QAngle const& angles , int skin , int body , int hitboxset , const matrix3x4_t *modelToWorld = NULL , const matrix3x4_t *pLightingOffset = NULL ) = 0;
+		virtual int	DrawModel( int flags , IClientRenderable *pRenderable , ModelInstanceHandle_t instance , int entity_index , const model_t *model , Vector const& origin , Vector const& angles , int skin , int body , int hitboxset , const matrix3x4_t *modelToWorld = NULL , const matrix3x4_t *pLightingOffset = NULL ) = 0;
 		// This causes a material to be used when rendering the model instead 
 		// of the materials the model was compiled with
 		virtual void	ForcedMaterialOverride( IMaterial *newMaterial , OverrideType_t nOverrideType = OVERRIDE_NORMAL , int iUnknown = 0 ) = 0;

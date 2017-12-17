@@ -53,28 +53,6 @@ inline bool IsFinite( const vec_t &f )
 #define FLOAT32_NAN_BITS     (uint32)0x7FC00000	// not a number!
 #define FLOAT32_NAN          BitsToFloat( FLOAT32_NAN_BITS )
 
-struct vrect_t
-{
-	int				x , y , width , height;
-	vrect_t			*pnext;
-};
-
-struct Rect_t
-{
-	int x , y;
-	int width , height;
-};
-
-struct colorVec
-{
-	unsigned r , g , b , a;
-};
-
-struct color24
-{
-	byte r , g , b;
-};
-
 #define DECLARE_POINTER_HANDLE(name) struct name##__ { int unused; }; typedef struct name##__ *name
 #define FORWARD_DECLARE_HANDLE(name) typedef struct name##__ *name
 

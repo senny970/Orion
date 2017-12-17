@@ -213,7 +213,7 @@ namespace SDK
 	struct AudioState_t
 	{
 		Vector m_Origin;
-		QAngle m_Angles;
+    Vector m_Angles;
 		bool m_bIsUnderwater;
 	};
 

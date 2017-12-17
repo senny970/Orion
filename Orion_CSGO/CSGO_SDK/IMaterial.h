@@ -7,6 +7,14 @@ namespace SDK
 
 	typedef uint64 VertexFormat_t;
 
+  enum MaterialPropertyTypes_t
+  {
+    MATERIAL_PROPERTY_NEEDS_LIGHTMAP = 0,					// bool
+    MATERIAL_PROPERTY_OPACITY,								// int (enum MaterialPropertyOpacityTypes_t)
+    MATERIAL_PROPERTY_REFLECTIVITY,							// vec3_t
+    MATERIAL_PROPERTY_NEEDS_BUMPED_LIGHTMAPS				// bool
+  };
+
 	enum VertexFormatFlags_t
 	{
 		// Indicates an uninitialized VertexFormat_t value

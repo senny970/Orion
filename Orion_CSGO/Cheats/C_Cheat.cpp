@@ -4,13 +4,16 @@ C_Cheat::C_Cheat(const string &sCheatName)
 {
   m_sName = sCheatName;
   m_bEnabled = false;
-
-  pMe = (Engine::CBaseEntity*)G::pEntityList->GetClientEntity(G::pEngine->GetLocalPlayer());
 }
 
 C_Cheat::~C_Cheat()
 {
   m_bEnabled = false;
+}
+
+bool& C_Cheat::IsEnabled()
+{
+  return m_bEnabled;
 }
 
 void C_Cheat::UpdateEntities()
@@ -19,11 +22,9 @@ void C_Cheat::UpdateEntities()
   m_vEnemies.clear();
   m_vFriendlies.clear();
 
-  pMe = (Engine::CBaseEntity*)G::pEntityList->GetClientEntity(G::pEngine->GetLocalPlayer());
-
-  if (pMe)
+  if (G::pMe)
   {
-    for (int i = 0; i < MAX_PLAYERS; i++)
+    for (int i = 0; i < G::pEntityList->GetHighestEntityIndex(); i++)
     {
       Engine::CBaseEntity* pEntity = (Engine::CBaseEntity*)G::pEntityList->GetClientEntity(i);
 
@@ -33,9 +34,9 @@ void C_Cheat::UpdateEntities()
       {
         m_vAllPlayers.push_back(pEntity);
 
-        if (pMe && pEntity != pMe && i != G::pEngine->GetLocalPlayer())
+        if (G::pMe && pEntity != G::pMe && i != G::pEngine->GetLocalPlayer())
         {
-          if (pEntity->GetTeam() == pMe->GetTeam())
+          if (pEntity->GetTeam() == G::pMe->GetTeam())
           {
             m_vFriendlies.push_back(pEntity);
           }
@@ -51,5 +52,5 @@ void C_Cheat::UpdateEntities()
 
 bool C_Cheat::Unload()
 {
-  return UndoChanges();
+  return (UndoDraws() & UndoChanges());
 }
